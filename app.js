@@ -290,13 +290,13 @@ const projects = [
     {
 
         title:
-            "AI Social Media Automation Platform",
+            Building The Future Of Marketing... AI Social Media Automation Platform Coming Soon! 🚀",
 
         category:
             "ai",
 
         description:
-            "AI-powered social media automation platform concept for content uploading, captions, scheduling and analytics.",
+            "An AI-powered social media automation platform designed for seamless content uploading, smart caption generation, scheduling, and performance analytics. Coming Soon! 🚀.",
 
         tech:
             [
@@ -306,10 +306,10 @@ const projects = [
             ],
 
         live:
-            "https://github.com/MuhammadKhateebEjaz",
+            "https://ai-social-automation-with-lashkars.vercel.app",
 
         github:
-            "https://github.com/MuhammadKhateebEjaz"
+            "https://github.com/MuhammadKhateebEjaz/ai-social-automation-with-lashkars"
 
     },
 
@@ -319,7 +319,7 @@ const projects = [
     {
 
         title:
-            "Earn With Lashkar",
+            "Building The Ultimate Platform... Earn With Lashkar Coming Soon! 💻✨",
 
         category:
             "fullstack",
@@ -335,10 +335,10 @@ const projects = [
             ],
 
         live:
-            "https://github.com/MuhammadKhateebEjaz",
+            "https://earn-with-lashkar.vercel.app",
 
         github:
-            "https://github.com/MuhammadKhateebEjaz"
+            "https://github.com/MuhammadKhateebEjaz/earn-with-lashkar"
 
     },
 
@@ -348,13 +348,16 @@ const projects = [
     {
 
         title:
-            "Todo AI Chatbot",
+            "AI-Powered Todo Assistant | Smart Task Management | UI Upgrade Coming Soon",
 
         category:
             "ai",
 
         description:
-            "Todo application combined with an AI chatbot interface and task management workflow.",
+            "AI-Powered Todo Assistant | Smart Task Management
+A modern task management application integrated with an AI chatbot to help you organize, track, and manage your daily tasks effortlessly.
+
+Note: The core functionality is fully built and working! A stunning new UI/UX upgrade is currently in progress and coming soon. 🚀",
 
         tech:
             [
@@ -364,10 +367,10 @@ const projects = [
             ],
 
         live:
-            "https://github.com/MuhammadKhateebEjaz",
+            "https://hackathon-ii-phase-iii-todo-ai-chat.vercel.app",
 
         github:
-            "https://github.com/MuhammadKhateebEjaz"
+            "https://github.com/MuhammadKhateebEjaz/Hackathon-II-Phase-III-Todo-AI-Chatbot"
 
     },
 
@@ -377,13 +380,17 @@ const projects = [
     {
 
         title:
-            "Client Agreement Portal",
+            "Client Agreement Portal | Web Development Contract & PDF Generator",
 
         category:
             "web",
 
         description:
-            "Professional client agreement portal concept with PDF and WhatsApp workflow.",
+            "A sleek, web-based contract portal built with HTML, CSS, and JavaScript.
+
+This interactive platform allows clients to fill out their project requirements, review web development terms, pricing, and payment structures, and instantly generate and download a professional PDF agreement before starting the project. Designed for a smooth, transparent, and hassle-free client onboarding experience.
+
+Status: Core system is fully functional! Final UI styling and design upgrades are currently in progress. 🚀",
 
         tech:
             [
@@ -393,7 +400,7 @@ const projects = [
             ],
 
         live:
-            "https://github.com/MuhammadKhateebEjaz",
+            "https://client-agreement-portal.vercel.app",
 
         github:
             "https://github.com/MuhammadKhateebEjaz"
@@ -406,26 +413,25 @@ const projects = [
     {
 
         title:
-            "Actor Portfolio",
+            "Unit Converter App — UI Upgrade Coming Soon 🚀",
 
         category:
             "ui",
 
         description:
-            "Cinematic portfolio website concept for actor, model and content creator.",
+            "A functional Python-based unit conversion app featuring category selection, dynamic From/To unit fields, value input, and instant conversions. The core conversion logic is fully built and working, while a modern UI/UX redesign is currently in progress.",
 
         tech:
             [
-                "HTML",
-                "CSS",
-                "GSAP"
+           "Python",
+           "Streamlit"
             ],
 
         live:
-            "https://actor-portfolio-m-khateeb-ejaz.vercel.app/",
+            "https://project02-unit-convertor-app-u9ndtscsz4hvlveszu7jm9.streamlit.app",
 
         github:
-            "https://github.com/MuhammadKhateebEjaz"
+            "https://github.com/MuhammadKhateebEjaz/Project_02-Unit-Convertor-App"
 
     },
 
