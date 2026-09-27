@@ -575,7 +575,7 @@ const projects = [
             "https://muhammadkhateebejaz-growth-mindset-challe-file-converter-lfxgpj.streamlit.app",
 
         github:
-            "https://github.com/MuhammadKhateebEjaz/Growth-Mindset-Challenge-Web-App-With-Giaic-Quarter-3-Project-1-
+            "https://github.com/MuhammadKhateebEjaz/Growth-Mindset-Challenge-Web-App-With-Giaic-Quarter-3-Project-1-"
     },
 
  /* ================= PROJECT 11 ================= */
