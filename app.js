@@ -434,26 +434,28 @@ const projects = [
     {
 
         title:
-            "Lashkars Store",
+            "Best Furniture Collection | Interior Store & Catalog",
 
         category:
-            "web",
+            "web | ui | Figma",
 
         description:
-            "Online shopping and product showcase website with responsive design.",
+            "A stylish furniture showcase and interior collection web platform featuring elegant layouts, category browsing, and product display for modern home styling. Fully working and live in action; a modern UI/UX upgrade is also currently in progress! 🚀",
 
         tech:
             [
-                "HTML",
-                "CSS",
-                "JavaScript"
+         "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Figma Design"
             ],
 
         live:
-            "https://github.com/MuhammadKhateebEjaz",
+            "https://figma-nine-green.vercel.app",
 
         github:
-            "https://github.com/MuhammadKhateebEjaz"
+            "https://github.com/MuhammadKhateebEjaz/Figma-Template-8"
 
     },
 
@@ -463,26 +465,30 @@ const projects = [
     {
 
         title:
-            "Noor Online Shopping",
+            "Noor Online Shopping | E-Commerce & Store Platform",
 
         category:
             "web",
 
         description:
-            "Responsive online shopping website with modern product-focused interface.",
+            "A feature-rich e-commerce store platform featuring category browsing, interactive Add to Cart functionality, cart management, direct WhatsApp order checkout, and delivery options. Core store logic is fully built; a modern UI/UX upgrade is currently in progress! 🚀",
 
         tech:
             [
-                "HTML",
-                "CSS",
-                "UI"
+        "HTML",
+        "CSS",
+        "UI",
+        "JavaScript",
+        "React",
+        "Add to Cart System",
+        "WhatsApp Checkout"
             ],
 
         live:
-            "https://github.com/MuhammadKhateebEjaz",
+            "https://the-noor-online-shopping-store.vercel.app",
 
         github:
-            "https://github.com/MuhammadKhateebEjaz"
+            "https://github.com/MuhammadKhateebEjaz/The-Noor-Online-Shopping-Store"
 
     },
 
@@ -492,23 +498,27 @@ const projects = [
     {
 
         title:
-            "Learn With Babar MCQ Portal",
+            "Learn With Babar | Govt Jobs Prep Academy (Client Project - Pending Review) ",
 
         category:
-            "web",
+            "fullstack",
 
         description:
-            "MCQ and government jobs preparation portal concept.",
+            "An educational platform designed for government job test preparation, featuring study materials, practice tests, and guidance. Core platform logic is fully built; an enhanced UI/UX redesign is currently in progress! 🚀 client's side.",
 
         tech:
             [
-                "HTML",
-                "CSS",
-                "JavaScript"
+         "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Database",
+        "Admin Panel"
             ],
 
         live:
-            "https://github.com/MuhammadKhateebEjaz",
+            "https://learn-with-babar-govtjobsprep-academy.netlify.app",
 
         github:
             "https://github.com/MuhammadKhateebEjaz"
@@ -542,18 +552,18 @@ const projects = [
             "https://github.com/MuhammadKhateebEjaz/Project_04_Personal-Library-Manager"
 
     },
-/* ================= PROJECT 09 ================= */
+/* ================= PROJECT 10 ================= */
 
     {
 
         title:
-            "Personal Library Manager | Streamlit App",
+            "Data Sweeper — File Transformation & Cleaning Tool",
 
         category:
             "ui",
 
         description:
-            "A Python and Streamlit-based library management app featuring Add Book, View All Books, Search Book, and Remove Book functionalities. Core app logic is fully built and working; UI/UX enhancements are currently in progress! 🚀",
+            "Transform your files between CSV and Excel formats with built-in data cleaning and visualization[cite: 2]. Core functionality is fully built and working; a modern UI/UX upgrade is currently in progress! 🚀",
 
         tech:
             [
@@ -562,14 +572,13 @@ const projects = [
             ],
 
         live:
-            "https://project04personal-library-manager-mp9wqx9z4r9wttmyaahk8n.streamlit.app",
+            "https://muhammadkhateebejaz-growth-mindset-challe-file-converter-lfxgpj.streamlit.app",
 
         github:
-            "https://github.com/MuhammadKhateebEjaz/Project_04_Personal-Library-Manager"
-
+            "https://github.com/MuhammadKhateebEjaz/Growth-Mindset-Challenge-Web-App-With-Giaic-Quarter-3-Project-1-
     },
 
- /* ================= PROJECT 09 ================= */
+ /* ================= PROJECT 11 ================= */
 
     {
 
@@ -595,31 +604,30 @@ const projects = [
             "https://github.com/MuhammadKhateebEjaz/Project_04_Personal-Library-Manager"
 
     }, 
-    /* ================= PROJECT 10 ================= */
+    /* ================= PROJECT 12 ================= */
 
     {
 
         title:
-            "WaterPanda Website",
+            "Password Strength Meter | Security Tool",
 
         category:
             "ui",
 
         description:
-            "Premium drinking water brand website concept.",
+            "A smart security utility that analyzes password strength in real-time, evaluating complexity and providing instant feedback to create secure passwords. Core logic is fully functional; UI redesign is currently in progress! 🚀",
 
         tech:
             [
-                "HTML",
-                "CSS",
-                "UI"
+                "Python",
+        "Streamlit"
             ],
 
         live:
-            "https://github.com/MuhammadKhateebEjaz",
+            "https://project03-password-strength-meter-tkj2amappytxviynh4cag8x.streamlit.app",
 
         github:
-            "https://github.com/MuhammadKhateebEjaz"
+            "https://github.com/MuhammadKhateebEjaz/Project_03-Password-Strength-Meter"
 
     }
 
