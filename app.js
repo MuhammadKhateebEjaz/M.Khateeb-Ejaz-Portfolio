@@ -521,30 +521,54 @@ const projects = [
     {
 
         title:
-            "M. Khateeb Ejaz Portfolio",
+            "Personal Library Manager | Streamlit App",
 
         category:
             "ui",
 
         description:
-            "Personal professional portfolio website showcasing skills, services and projects.",
+            "A Python and Streamlit-based library management app featuring Add Book, View All Books, Search Book, and Remove Book functionalities. Core app logic is fully built and working; UI/UX enhancements are currently in progress! 🚀",
 
         tech:
             [
-                "HTML",
-                "CSS",
-                "JavaScript"
+           "Python",
+        "Streamlit"
             ],
 
         live:
-            "https://muhammadkhateebejaz.github.io/M.Khateeb-Ejaz-Portfolio-Website/",
+            "https://project04personal-library-manager-mp9wqx9z4r9wttmyaahk8n.streamlit.app",
 
         github:
-            "https://github.com/MuhammadKhateebEjaz/M.Khateeb-Ejaz-Portfolio-Website"
+            "https://github.com/MuhammadKhateebEjaz/Project_04_Personal-Library-Manager"
 
     },
 
+ /* ================= PROJECT 09 ================= */
 
+    {
+
+        title:
+            "Personal Library Manager | Streamlit App",
+
+        category:
+            "ui",
+
+        description:
+            "A Python and Streamlit-based library management app featuring Add Book, View All Books, Search Book, and Remove Book functionalities. Core app logic is fully built and working; UI/UX enhancements are currently in progress! 🚀",
+
+        tech:
+            [
+           "Python",
+        "Streamlit"
+            ],
+
+        live:
+            "https://project04personal-library-manager-mp9wqx9z4r9wttmyaahk8n.streamlit.app",
+
+        github:
+            "https://github.com/MuhammadKhateebEjaz/Project_04_Personal-Library-Manager"
+
+    }, 
     /* ================= PROJECT 10 ================= */
 
     {
