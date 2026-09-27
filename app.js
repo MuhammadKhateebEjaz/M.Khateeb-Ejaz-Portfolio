@@ -348,7 +348,7 @@ const projects = [
     {
 
         title:
-            "AI-Powered Todo Assistant | Smart Task Management | UI Upgrade Coming Soon",
+            "🤖AI-Powered Todo Assistant | Smart Task Management | UI Upgrade Coming Soon",
 
         category:
             "ai",
@@ -377,7 +377,7 @@ const projects = [
     {
 
         title:
-            "Client Agreement Portal | Web Development Contract & PDF Generator",
+            "📄 Client Agreement Portal | Web Development Contract & PDF Generator",
 
         category:
             "web",
@@ -387,9 +387,10 @@ const projects = [
 
         tech:
             [
-                "HTML",
-                "CSS",
-                "JavaScript"
+       "HTML",
+        "CSS",
+        "JavaScript",
+        "PDF Generator"
             ],
 
         live:
@@ -406,7 +407,7 @@ const projects = [
     {
 
         title:
-            "Unit Converter App — UI Upgrade Coming Soon 🚀",
+            "🔄 Google Unit Converter App | Streamlit & Web Utility | UI Upgrade Coming Soon 🚀",
 
         category:
             "ui",
@@ -434,7 +435,7 @@ const projects = [
     {
 
         title:
-            "Best Furniture Collection | Interior Store & Catalog",
+            "🛋️ Best Furniture Collection | Interior Store & Catalog",
 
         category:
             "web",
@@ -465,7 +466,7 @@ const projects = [
     {
 
         title:
-            "Noor Online Shopping | E-Commerce & Store Platform",
+            "🛍️ Noor Online Shopping | E-Commerce & Store Platform",
 
         category:
             "web",
@@ -498,7 +499,7 @@ const projects = [
     {
 
         title:
-            "Learn With Babar | Govt Jobs Prep Academy (Client Project - Pending Review) ",
+            " 🎓📚 Learn With Babar | Govt Jobs Prep Academy (Client Project - Pending Review) ",
 
         category:
             "fullstack",
@@ -531,7 +532,7 @@ const projects = [
     {
 
         title:
-            "Personal Library Manager | Streamlit App",
+            "📚 Personal Library Manager | Streamlit App",
 
         category:
             "ui",
@@ -557,7 +558,7 @@ const projects = [
     {
 
         title:
-            "Data Sweeper — File Transformation & Cleaning Tool",
+            "💿 Data Sweeper — File Transformation & Cleaning Tool",
 
         category:
             "ui",
@@ -583,25 +584,32 @@ const projects = [
     {
 
         title:
-            "Personal Library Manager | Streamlit App",
+            "🛍️ Uzma Enterprise Shopping Store | E-Commerce Platform (Client Project - Pending Review)",
 
         category:
-            "ui",
+            "web",
 
         description:
             "A Python and Streamlit-based library management app featuring Add Book, View All Books, Search Book, and Remove Book functionalities. Core app logic is fully built and working; UI/UX enhancements are currently in progress! 🚀",
 
         tech:
             [
-           "Python",
-        "Streamlit"
+          "HTML",
+        "CSS",
+        "UI",
+        "JavaScript",
+        "React",
+        "Add to Cart System",
+        "WhatsApp Checkout"
+            
+               
             ],
 
         live:
-            "https://project04personal-library-manager-mp9wqx9z4r9wttmyaahk8n.streamlit.app",
+            "https://uzma-enterprices-shopping-store.vercel.app",
 
         github:
-            "https://github.com/MuhammadKhateebEjaz/Project_04_Personal-Library-Manager"
+            "https://github.com/MuhammadKhateebEjaz/"
 
     }, 
     /* ================= PROJECT 12 ================= */
@@ -609,7 +617,7 @@ const projects = [
     {
 
         title:
-            "Password Strength Meter | Security Tool",
+            "🔐 Password Strength Meter | Security Tool",
 
         category:
             "ui",
