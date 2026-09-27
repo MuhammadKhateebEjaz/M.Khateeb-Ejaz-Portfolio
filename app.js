@@ -290,7 +290,7 @@ const projects = [
     {
 
         title:
-            Building The Future Of Marketing... AI Social Media Automation Platform Coming Soon! 🚀",
+            "Building The Future Of Marketing... AI Social Media Automation Platform Coming Soon! 🚀",
 
         category:
             "ai",
@@ -325,7 +325,7 @@ const projects = [
             "fullstack",
 
         description:
-            "Earning platform concept with users, submissions, withdrawals and admin dashboard.",
+            "Building The Ultimate Platform... Earn With Lashkar Coming Soon! 💻✨ An AI-powered tool designed for seamless content uploading, smart caption generation, scheduling, and performance analytics.",
 
         tech:
             [
@@ -354,10 +354,7 @@ const projects = [
             "ai",
 
         description:
-            "AI-Powered Todo Assistant | Smart Task Management
-A modern task management application integrated with an AI chatbot to help you organize, track, and manage your daily tasks effortlessly.
-
-Note: The core functionality is fully built and working! A stunning new UI/UX upgrade is currently in progress and coming soon. 🚀",
+            "A modern task management app integrated with an AI chatbot. Core functionality is fully built and working; a stunning new UI/UX upgrade is coming soon! 🚀",
 
         tech:
             [
@@ -386,11 +383,7 @@ Note: The core functionality is fully built and working! A stunning new UI/UX up
             "web",
 
         description:
-            "A sleek, web-based contract portal built with HTML, CSS, and JavaScript.
-
-This interactive platform allows clients to fill out their project requirements, review web development terms, pricing, and payment structures, and instantly generate and download a professional PDF agreement before starting the project. Designed for a smooth, transparent, and hassle-free client onboarding experience.
-
-Status: Core system is fully functional! Final UI styling and design upgrades are currently in progress. 🚀",
+            "A sleek, web-based contract portal where clients can fill out project requirements, review pricing/terms, and instantly download a PDF agreement. Core system is fully functional; final UI upgrades in progress! 🚀",
 
         tech:
             [
