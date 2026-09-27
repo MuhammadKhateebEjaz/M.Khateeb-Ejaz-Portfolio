@@ -437,7 +437,7 @@ const projects = [
             "Best Furniture Collection | Interior Store & Catalog",
 
         category:
-            "web | ui | Figma",
+            "web",
 
         description:
             "A stylish furniture showcase and interior collection web platform featuring elegant layouts, category browsing, and product display for modern home styling. Fully working and live in action; a modern UI/UX upgrade is also currently in progress! 🚀",
