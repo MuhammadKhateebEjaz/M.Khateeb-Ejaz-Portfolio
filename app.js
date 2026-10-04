@@ -1,1060 +1,911 @@
-/* =========================================================
-   MUHAMMAD KHATEEB EJAZ
-   PREMIUM PORTFOLIO — APP.JS
-========================================================= */
-
 
 /* =========================================================
-   01 — ELEMENTS
-========================================================= */
-
-const header = document.getElementById("header");
-const nav = document.getElementById("nav");
-const menuToggle = document.getElementById("menuToggle");
-
-const typingElement = document.getElementById("typing");
-
-const backTop = document.getElementById("backTop");
-
-const yearElement = document.getElementById("year");
-
-const projectGrid = document.getElementById("projectGrid");
-const projectCounter = document.getElementById("projectCounter");
-
-const filterButtons = document.querySelectorAll(".filter");
-const navLinks = document.querySelectorAll(".nav-link");
+   MUHAMMAD KHATEEB EJAZ PORTFOLIO
+   ========================================================= */
 
 
-/* =========================================================
-   02 — CURRENT YEAR
-========================================================= */
+/* ================= TYPING EFFECT ================= */
 
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
+const typingElement =
+    document.getElementById("typing");
+
+
+const typingWords = [
+
+    "Web Developer",
+    "Front-End Developer",
+    "React / Next.js Developer",
+    "UI/UX Designer",
+    "AI-Assisted Builder"
+
+];
+
+
+let wordIndex = 0;
+
+let characterIndex = 0;
+
+let deleting = false;
+
+
+function typingEffect() {
+
+    if (!typingElement) return;
+
+
+    const currentWord =
+        typingWords[wordIndex];
+
+
+    if (deleting) {
+
+        characterIndex--;
+
+    } else {
+
+        characterIndex++;
+
+    }
+
+
+    typingElement.textContent =
+        currentWord.substring(
+            0,
+            characterIndex
+        );
+
+
+    let speed =
+        deleting ? 45 : 75;
+
+
+    if (
+        !deleting &&
+        characterIndex === currentWord.length
+    ) {
+
+        speed = 1300;
+
+        deleting = true;
+
+    }
+
+
+    else if (
+        deleting &&
+        characterIndex === 0
+    ) {
+
+        deleting = false;
+
+        wordIndex =
+            (wordIndex + 1)
+            % typingWords.length;
+
+        speed = 300;
+
+    }
+
+
+    setTimeout(
+        typingEffect,
+        speed
+    );
+
 }
 
 
-/* =========================================================
-   03 — MOBILE MENU
-========================================================= */
-
-if (menuToggle && nav) {
-
-  menuToggle.addEventListener("click", () => {
-
-    const isOpen = nav.classList.toggle("open");
-
-    menuToggle.classList.toggle(
-      "active",
-      isOpen
-    );
-
-    menuToggle.setAttribute(
-      "aria-expanded",
-      isOpen
-    );
-
-  });
+typingEffect();
 
 
-  /* Close menu after clicking a link */
 
-  navLinks.forEach((link) => {
+/* ================= MOBILE MENU ================= */
 
-    link.addEventListener("click", () => {
+const menuButton =
+    document.getElementById("menuBtn");
 
-      nav.classList.remove("open");
 
-      menuToggle.classList.remove("active");
+const navigation =
+    document.getElementById("navMenu");
 
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
+
+menuButton.addEventListener(
+    "click",
+    function () {
+
+        navigation.classList.toggle(
+            "open"
+        );
+
+
+        if (
+            navigation.classList.contains(
+                "open"
+            )
+        ) {
+
+            menuButton.innerHTML =
+                '<i class="fa-solid fa-xmark"></i>';
+
+        }
+
+        else {
+
+            menuButton.innerHTML =
+                '<i class="fa-solid fa-bars"></i>';
+
+        }
+
+    }
+);
+
+
+
+/* Close menu after clicking link */
+
+document
+    .querySelectorAll("#navMenu a")
+    .forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                navigation.classList.remove(
+                    "open"
+                );
+
+                menuButton.innerHTML =
+                    '<i class="fa-solid fa-bars"></i>';
+
+            }
+        );
 
     });
 
-  });
 
 
-  /* Close menu when clicking outside */
+/* ================= HEADER ================= */
 
-  document.addEventListener("click", (event) => {
+const header =
+    document.getElementById("header");
 
-    if (
-      nav.classList.contains("open") &&
-      !nav.contains(event.target) &&
-      !menuToggle.contains(event.target)
-    ) {
-
-      nav.classList.remove("open");
-
-      menuToggle.classList.remove("active");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-    }
-
-  });
-
-}
-
-
-/* =========================================================
-   04 — HEADER ON SCROLL
-========================================================= */
-
-function updateHeader() {
-
-  if (!header) return;
-
-  if (window.scrollY > 35) {
-
-    header.classList.add("scrolled");
-
-  } else {
-
-    header.classList.remove("scrolled");
-
-  }
-
-}
 
 window.addEventListener(
-  "scroll",
-  updateHeader,
-  { passive: true }
+    "scroll",
+    function () {
+
+        if (
+            window.scrollY > 40
+        ) {
+
+            header.classList.add(
+                "scrolled"
+            );
+
+        }
+
+        else {
+
+            header.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
 );
 
-updateHeader();
 
 
-/* =========================================================
-   05 — TYPING EFFECT
-========================================================= */
+/* ================= BACK TO TOP ================= */
 
-const typingWords = [
-  "Front-End Developer",
-  "React.js Developer",
-  "AI Website Developer",
-  "Creative Web Developer",
-  "UI-Focused Developer"
-];
+const backTop =
+    document.getElementById("backTop");
 
-let wordIndex = 0;
-let characterIndex = 0;
-let deleting = false;
-
-function typeText() {
-
-  if (!typingElement) return;
-
-  const currentWord =
-    typingWords[wordIndex];
-
-  if (!deleting) {
-
-    characterIndex++;
-
-    typingElement.textContent =
-      currentWord.substring(
-        0,
-        characterIndex
-      );
-
-    if (
-      characterIndex >=
-      currentWord.length
-    ) {
-
-      deleting = true;
-
-      setTimeout(
-        typeText,
-        1400
-      );
-
-      return;
-    }
-
-  } else {
-
-    characterIndex--;
-
-    typingElement.textContent =
-      currentWord.substring(
-        0,
-        characterIndex
-      );
-
-    if (characterIndex <= 0) {
-
-      deleting = false;
-
-      wordIndex =
-        (wordIndex + 1) %
-        typingWords.length;
-
-    }
-
-  }
-
-  const typingSpeed =
-    deleting ? 45 : 75;
-
-  setTimeout(
-    typeText,
-    typingSpeed
-  );
-}
-
-typeText();
-
-
-/* =========================================================
-   06 — ACTIVE NAV LINK
-========================================================= */
-
-const sections = document.querySelectorAll(
-  "section[id]"
-);
-
-function updateActiveNav() {
-
-  let currentSection = "";
-
-  const scrollPosition =
-    window.scrollY + 160;
-
-  sections.forEach((section) => {
-
-    const sectionTop =
-      section.offsetTop;
-
-    const sectionHeight =
-      section.offsetHeight;
-
-    if (
-      scrollPosition >= sectionTop &&
-      scrollPosition <
-        sectionTop + sectionHeight
-    ) {
-
-      currentSection =
-        section.getAttribute("id");
-
-    }
-
-  });
-
-
-  navLinks.forEach((link) => {
-
-    const target =
-      link.getAttribute("href");
-
-    link.classList.toggle(
-      "active",
-      target === `#${currentSection}`
-    );
-
-  });
-
-}
 
 window.addEventListener(
-  "scroll",
-  updateActiveNav,
-  { passive: true }
+    "scroll",
+    function () {
+
+        if (
+            window.scrollY > 500
+        ) {
+
+            backTop.classList.add(
+                "show"
+            );
+
+        }
+
+        else {
+
+            backTop.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
 );
 
-updateActiveNav();
 
-
-/* =========================================================
-   07 — BACK TO TOP
-========================================================= */
-
-function updateBackTop() {
-
-  if (!backTop) return;
-
-  if (window.scrollY > 500) {
-
-    backTop.classList.add("show");
-
-  } else {
-
-    backTop.classList.remove("show");
-
-  }
-
-}
-
-window.addEventListener(
-  "scroll",
-  updateBackTop,
-  { passive: true }
-);
-
-updateBackTop();
-
-
-if (backTop) {
-
-  backTop.addEventListener(
+backTop.addEventListener(
     "click",
-    () => {
+    function () {
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
 
     }
-  );
+);
 
-}
 
 
 /* =========================================================
-   08 — PROJECT DATA
-========================================================= */
+   PROJECTS
+   ========================================================= */
+
+
+/*
+   IMPORTANT:
+
+   Yahan apne 70+ REAL PROJECTS add karne hain.
+
+   Har project ka format:
+
+   {
+       title: "Project Name",
+
+       category: "web",
+
+       description:
+           "Project description",
+
+       tech: [
+           "HTML",
+           "CSS",
+           "JavaScript"
+       ],
+
+       live:
+           "https://your-live-site.com",
+
+       github:
+           "https://github.com/your-repo"
+   }
+
+*/
+
 
 const projects = [
 
-  {
-    title: "AI Social Automation Platform",
+    /* ================= PROJECT 01 ================= */
 
-    category: "ai",
+    {
 
-    categoryName: "AI / Automation",
+        title:
+            "Building The Future Of Marketing... AI Social Media Automation Platform Coming Soon! 🚀",
 
-    icon: "fa-solid fa-robot",
+        category:
+            "ai",
 
-    description:
-      "AI-powered social media workflow for content uploads, captions, scheduling, analytics and multi-platform publishing.",
+        description:
+            "An AI-powered social media automation platform designed for seamless content uploading, smart caption generation, scheduling, and performance analytics. Coming Soon! 🚀.",
 
-    tech: [
-      "Next.js",
-      "Firebase",
-      "AI",
-      "APIs"
-    ],
+        tech:
+            [
+                "Next.js",
+                "AI",
+                "APIs"
+            ],
 
-    demo:
-      "https://ai-social-automation-with-lashkars.vercel.app/",
+        live:
+            "https://ai-social-automation-with-lashkars.vercel.app",
 
-    code:
-      "https://github.com/MuhammadKhateebEjaz"
-  },
+        github:
+            "https://github.com/MuhammadKhateebEjaz/ai-social-automation-with-lashkars"
 
+    },
 
-  {
-    title: "Earn With Lashkar",
 
-    category: "fullstack",
+    /* ================= PROJECT 02 ================= */
 
-    categoryName: "Full Stack",
+    {
 
-    icon: "fa-solid fa-chart-line",
+        title:
+            "Building The Ultimate Platform... Earn With Lashkar Coming Soon! 💻✨",
 
-    description:
-      "A full-stack platform featuring user accounts, submissions, withdrawals and an admin management system.",
+        category:
+            "fullstack",
 
-    tech: [
-      "Next.js",
-      "Firebase",
-      "Admin",
-      "Auth"
-    ],
+        description:
+            "Building The Ultimate Platform... Earn With Lashkar Coming Soon! 💻✨ An AI-powered tool designed for seamless content uploading, smart caption generation, scheduling, and performance analytics.",
 
-    demo:
-      "https://earn-with-lashkar.vercel.app/",
+        tech:
+            [
+                "Next.js",
+                "Firebase",
+                "Admin"
+            ],
 
-    code:
-      "https://github.com/MuhammadKhateebEjaz"
-  },
+        live:
+            "https://earn-with-lashkar.vercel.app",
 
+        github:
+            "https://github.com/MuhammadKhateebEjaz/earn-with-lashkar"
 
-  {
-    title: "Todo AI Chatbot",
+    },
 
-    category: "ai",
 
-    categoryName: "AI / Chatbot",
+    /* ================= PROJECT 03 ================= */
 
-    icon: "fa-solid fa-comments",
+    {
 
-    description:
-      "A task management experience combined with an AI chatbot interface and simple local authentication.",
+        title:
+            "🤖AI-Powered Todo Assistant | Smart Task Management | UI Upgrade Coming Soon",
 
-    tech: [
-      "Next.js",
-      "JavaScript",
-      "AI",
-      "LocalStorage"
-    ],
+        category:
+            "ai",
 
-    demo:
-      "https://hackathon-ii-phase-iii-todo-ai-chat.vercel.app/",
+        description:
+            "A modern task management app integrated with an AI chatbot. Core functionality is fully built and working; a stunning new UI/UX upgrade is coming soon! 🚀",
 
-    code:
-      "https://github.com/MuhammadKhateebEjaz"
-  },
+        tech:
+            [
+                "Next.js",
+                "AI",
+                "Chatbot"
+            ],
 
+        live:
+            "https://hackathon-ii-phase-iii-todo-ai-chat.vercel.app",
 
-  {
-    title: "Actor Portfolio",
+        github:
+            "https://github.com/MuhammadKhateebEjaz/Hackathon-II-Phase-III-Todo-AI-Chatbot"
 
-    category: "ui",
+    },
 
-    categoryName: "Portfolio / UI",
 
-    icon: "fa-solid fa-camera",
+    /* ================= PROJECT 04 ================= */
 
-    description:
-      "A premium personal portfolio concept designed for an actor, model and content creator.",
+    {
 
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "GSAP"
-    ],
+        title:
+            "📄 Client Agreement Portal | Web Development Contract & PDF Generator",
 
-    demo:
-      "https://m-khateeb-ejaz-portfolio.vercel.app/",
+        category:
+            "web",
 
-    code:
-      "https://github.com/MuhammadKhateebEjaz"
-  },
+        description:
+            "A sleek, web-based contract portal where clients can fill out project requirements, review pricing/terms, and instantly download a PDF agreement. Core system is fully functional; final UI upgrades in progress! 🚀",
 
+        tech:
+            [
+       "HTML",
+        "CSS",
+        "JavaScript",
+        "PDF Generator"
+            ],
 
-  {
-    title: "Dynamic Resume Builder",
+        live:
+            "https://client-agreement-portal.vercel.app",
 
-    category: "web",
+        github:
+            "https://github.com/MuhammadKhateebEjaz"
 
-    categoryName: "Web Application",
+    },
 
-    icon: "fa-solid fa-file-lines",
 
-    description:
-      "Interactive resume creation experience allowing users to build and customize professional CV content.",
+    /* ================= PROJECT 05 ================= */
 
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "UI"
-    ],
+    {
 
-    demo:
-      "#",
+        title:
+            "🔄 Google Unit Converter App | Streamlit & Web Utility | UI Upgrade Coming Soon 🚀",
 
-    code:
-      "https://github.com/MuhammadKhateebEjaz"
-  },
+        category:
+            "ui",
 
+        description:
+            "A functional Python-based unit conversion app featuring category selection, dynamic From/To unit fields, value input, and instant conversions. The core conversion logic is fully built and working, while a modern UI/UX redesign is currently in progress.",
 
-  {
-    title: "Client Agreement Portal",
+        tech:
+            [
+           "Python",
+           "Streamlit"
+            ],
 
-    category: "fullstack",
+        live:
+            "https://project02-unit-convertor-app-u9ndtscsz4hvlveszu7jm9.streamlit.app",
 
-    categoryName: "Client System",
+        github:
+            "https://github.com/MuhammadKhateebEjaz/Project_02-Unit-Convertor-App"
 
-    icon: "fa-solid fa-file-signature",
+    },
 
-    description:
-      "A professional client agreement workflow created to simplify project details, confirmation and communication.",
 
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "PDF"
-    ],
+    /* ================= PROJECT 06 ================= */
 
-    demo:
-      "#",
+    {
 
-    code:
-      "https://github.com/MuhammadKhateebEjaz"
-  },
+        title:
+            "🛋️ Best Furniture Collection | Interior Store & Catalog",
 
+        category:
+            "web",
 
-  {
-    title: "Lashkars Store",
+        description:
+            "A stylish furniture showcase and interior collection web platform featuring elegant layouts, category browsing, and product display for modern home styling. Fully working and live in action; a modern UI/UX upgrade is also currently in progress! 🚀",
 
-    category: "web",
+        tech:
+            [
+         "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Figma Design"
+            ],
 
-    categoryName: "E-Commerce",
+        live:
+            "https://figma-nine-green.vercel.app",
 
-    icon: "fa-solid fa-bag-shopping",
+        github:
+            "https://github.com/MuhammadKhateebEjaz/Figma-Template-8"
 
-    description:
-      "Responsive e-commerce interface focused on products, customer experience and clean visual presentation.",
+    },
 
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Forms"
-    ],
 
-    demo:
-      "#",
+    /* ================= PROJECT 07 ================= */
 
-    code:
-      "https://github.com/MuhammadKhateebEjaz"
-  },
+    {
 
+        title:
+            "🛍️ Noor Online Shopping | E-Commerce & Store Platform",
 
-  {
-    title: "Noor Online Shopping",
+        category:
+            "web",
 
-    category: "web",
+        description:
+            "A feature-rich e-commerce store platform featuring category browsing, interactive Add to Cart functionality, cart management, direct WhatsApp order checkout, and delivery options. Core store logic is fully built; a modern UI/UX upgrade is currently in progress! 🚀",
 
-    categoryName: "E-Commerce",
+        tech:
+            [
+        "HTML",
+        "CSS",
+        "UI",
+        "JavaScript",
+        "React",
+        "Add to Cart System",
+        "WhatsApp Checkout"
+            ],
 
-    icon: "fa-solid fa-cart-shopping",
+        live:
+            "https://the-noor-online-shopping-store.vercel.app",
 
-    description:
-      "Modern online shopping interface designed with responsive layouts and mobile-friendly product presentation.",
+        github:
+            "https://github.com/MuhammadKhateebEjaz/The-Noor-Online-Shopping-Store"
 
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Responsive"
-    ],
+    },
 
-    demo:
-      "#",
 
-    code:
-      "https://github.com/MuhammadKhateebEjaz"
-  },
+    /* ================= PROJECT 08 ================= */
 
+    {
 
-  {
-    title: "Learn With Babar",
+        title:
+            " 🎓📚 Learn With Babar | Govt Jobs Prep Academy (Client Project - Pending Review) ",
 
-    category: "ui",
+        category:
+            "fullstack",
 
-    categoryName: "Education",
+        description:
+            "An educational platform designed for government job test preparation, featuring study materials, practice tests, and guidance. Core platform logic is fully built; an enhanced UI/UX redesign is currently in progress! 🚀 client's side.",
 
-    icon: "fa-solid fa-graduation-cap",
+        tech:
+            [
+         "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Database",
+        "Admin Panel"
+            ],
 
-    description:
-      "Educational and MCQ-based learning platform concept focused on simple navigation and accessible UI.",
+        live:
+            "https://learn-with-babar-govtjobsprep-academy.netlify.app",
 
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "MCQs"
-    ],
+        github:
+            "https://github.com/MuhammadKhateebEjaz"
 
-    demo:
-      "#",
+    },
 
-    code:
-      "https://github.com/MuhammadKhateebEjaz"
-  }
+
+    /* ================= PROJECT 09 ================= */
+
+    {
+
+        title:
+            "📚 Personal Library Manager | Streamlit App",
+
+        category:
+            "ui",
+
+        description:
+            "A Python and Streamlit-based library management app featuring Add Book, View All Books, Search Book, and Remove Book functionalities. Core app logic is fully built and working; UI/UX enhancements are currently in progress! 🚀",
+
+        tech:
+            [
+           "Python",
+        "Streamlit"
+            ],
+
+        live:
+            "https://project04personal-library-manager-mp9wqx9z4r9wttmyaahk8n.streamlit.app",
+
+        github:
+            "https://github.com/MuhammadKhateebEjaz/Project_04_Personal-Library-Manager"
+
+    },
+/* ================= PROJECT 10 ================= */
+
+    {
+
+        title:
+            "💿 Data Sweeper — File Transformation & Cleaning Tool",
+
+        category:
+            "ui",
+
+        description:
+            "Transform your files between CSV and Excel formats with built-in data cleaning and visualization[cite: 2]. Core functionality is fully built and working; a modern UI/UX upgrade is currently in progress! 🚀",
+
+        tech:
+            [
+           "Python",
+        "Streamlit"
+            ],
+
+        live:
+            "https://muhammadkhateebejaz-growth-mindset-challe-file-converter-lfxgpj.streamlit.app",
+
+        github:
+            "https://github.com/MuhammadKhateebEjaz/Growth-Mindset-Challenge-Web-App-With-Giaic-Quarter-3-Project-1-"
+    },
+
+ /* ================= PROJECT 11 ================= */
+
+    {
+
+        title:
+            "🛍️ Uzma Enterprise Shopping Store | E-Commerce Platform (Client Project - Pending Review)",
+
+        category:
+            "web",
+
+        description:
+            "A Python and Streamlit-based library management app featuring Add Book, View All Books, Search Book, and Remove Book functionalities. Core app logic is fully built and working; UI/UX enhancements are currently in progress! 🚀",
+
+        tech:
+            [
+          "HTML",
+        "CSS",
+        "UI",
+        "JavaScript",
+        "React",
+        "Add to Cart System",
+        "WhatsApp Checkout"
+            
+               
+            ],
+
+        live:
+            "https://uzma-enterprices-shopping-store.vercel.app",
+
+        github:
+            "https://github.com/MuhammadKhateebEjaz/"
+
+    }, 
+    /* ================= PROJECT 12 ================= */
+
+    {
+
+        title:
+            "🔐 Password Strength Meter | Security Tool",
+
+        category:
+            "ui",
+
+        description:
+            "A smart security utility that analyzes password strength in real-time, evaluating complexity and providing instant feedback to create secure passwords. Core logic is fully functional; UI redesign is currently in progress! 🚀",
+
+        tech:
+            [
+                "Python",
+        "Streamlit"
+            ],
+
+        live:
+            "https://project03-password-strength-meter-tkj2amappytxviynh4cag8x.streamlit.app",
+
+        github:
+            "https://github.com/MuhammadKhateebEjaz/Project_03-Password-Strength-Meter"
+
+    }
 
 ];
 
 
-/* =========================================================
-   09 — PROJECT RENDER
-========================================================= */
 
-function renderProjects(filter = "all") {
+/* ================= PROJECT DISPLAY ================= */
 
-  if (!projectGrid) return;
-
-  const filteredProjects =
-    filter === "all"
-      ? projects
-      : projects.filter(
-          (project) =>
-            project.category === filter
-        );
-
-
-  projectGrid.innerHTML = "";
-
-
-  filteredProjects.forEach(
-    (project, index) => {
-
-      const card =
-        document.createElement("article");
-
-      card.className =
-        "project-card";
-
-
-      card.innerHTML = `
-
-        <div class="project-top">
-
-          <div class="project-icon">
-            <i class="${project.icon}"></i>
-          </div>
-
-          <span class="project-category">
-            ${project.categoryName}
-          </span>
-
-        </div>
-
-
-        <div class="project-body">
-
-          <h3>
-            ${project.title}
-          </h3>
-
-          <p>
-            ${project.description}
-          </p>
-
-
-          <div class="project-tech">
-
-            ${project.tech
-              .map(
-                (tech) =>
-                  `<span>${tech}</span>`
-              )
-              .join("")}
-
-          </div>
-
-
-          <div class="project-actions">
-
-            <a
-              href="${project.demo}"
-              ${
-                project.demo === "#"
-                  ? 'aria-disabled="true"'
-                  : 'target="_blank" rel="noopener noreferrer"'
-              }
-            >
-              View Project
-            </a>
-
-            <a
-              href="${project.code}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-
-          </div>
-
-        </div>
-
-      `;
-
-
-      projectGrid.appendChild(card);
-
-
-      /* Small entrance animation */
-
-      card.animate(
-        [
-          {
-            opacity: 0,
-            transform:
-              "translateY(15px)"
-          },
-          {
-            opacity: 1,
-            transform:
-              "translateY(0)"
-          }
-        ],
-        {
-          duration: 400,
-          delay: index * 50,
-          easing:
-            "cubic-bezier(.2,.75,.2,1)",
-          fill: "both"
-        }
-      );
-
-    }
-  );
-
-
-  if (projectCounter) {
-
-    projectCounter.textContent =
-      `${filteredProjects.length} Projects`;
-
-  }
-
-}
-
-
-/* =========================================================
-   10 — PROJECT FILTERS
-========================================================= */
-
-filterButtons.forEach((button) => {
-
-  button.addEventListener(
-    "click",
-    () => {
-
-      filterButtons.forEach(
-        (item) => {
-
-          item.classList.remove(
-            "active"
-          );
-
-        }
-      );
-
-
-      button.classList.add(
-        "active"
-      );
-
-
-      const filter =
-        button.dataset.filter ||
-        "all";
-
-
-      renderProjects(filter);
-
-    }
-  );
-
-});
-
-
-/* Initial projects */
-
-renderProjects();
-
-
-/* =========================================================
-   11 — PREVENT DEAD DEMO LINKS
-========================================================= */
-
-document.addEventListener(
-  "click",
-  (event) => {
-
-    const link =
-      event.target.closest(
-        '.project-actions a[aria-disabled="true"]'
-      );
-
-    if (!link) return;
-
-    event.preventDefault();
-
-  }
-);
-
-
-/* =========================================================
-   12 — SMOOTH ANCHOR FALLBACK
-========================================================= */
-
-document
-  .querySelectorAll(
-    'a[href^="#"]'
-  )
-  .forEach((link) => {
-
-    link.addEventListener(
-      "click",
-      (event) => {
-
-        const targetId =
-          link.getAttribute("href");
-
-        if (
-          !targetId ||
-          targetId === "#"
-        ) {
-          return;
-        }
-
-        const target =
-          document.querySelector(
-            targetId
-          );
-
-        if (!target) return;
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-
-      }
-    );
-
-  });
-
-
-/* =========================================================
-   13 — SIMPLE REVEAL ANIMATION
-========================================================= */
-
-const revealItems =
-  document.querySelectorAll(
-    ".section-heading, .service-card, .skill-row, .project-card, .about-image-card, .about-content, .contact-box"
-  );
-
-
-if (
-  "IntersectionObserver" in window
-) {
-
-  const revealObserver =
-    new IntersectionObserver(
-      (entries, observer) => {
-
-        entries.forEach(
-          (entry) => {
-
-            if (!entry.isIntersecting) {
-              return;
-            }
-
-            entry.target.animate(
-              [
-                {
-                  opacity: 0,
-                  transform:
-                    "translateY(25px)"
-                },
-                {
-                  opacity: 1,
-                  transform:
-                    "translateY(0)"
-                }
-              ],
-              {
-                duration: 650,
-                easing:
-                  "cubic-bezier(.2,.75,.2,1)",
-                fill: "both"
-              }
-            );
-
-
-            observer.unobserve(
-              entry.target
-            );
-
-          }
-        );
-
-      },
-      {
-        threshold: 0.08
-      }
+const projectGrid =
+    document.getElementById(
+        "projectGrid"
     );
 
 
-  revealItems.forEach(
-    (item) => {
-
-      revealObserver.observe(
-        item
-      );
-
-    }
-  );
-
-}
+const projectCounter =
+    document.getElementById(
+        "projectCounter"
+    );
 
 
-/* =========================================================
-   14 — MOUSE PARALLAX FOR HERO
-========================================================= */
 
-const heroVisual =
-  document.querySelector(
-    ".hero-visual"
-  );
-
-
-if (
-  heroVisual &&
-  window.matchMedia(
-    "(min-width: 901px)"
-  ).matches
+function displayProjects(
+    selectedCategory = "all"
 ) {
 
-  heroVisual.addEventListener(
-    "mousemove",
-    (event) => {
 
-      const rect =
-        heroVisual.getBoundingClientRect();
+    let filteredProjects;
 
-      const x =
-        (event.clientX - rect.left)
-        / rect.width
-        - 0.5;
-
-      const y =
-        (event.clientY - rect.top)
-        / rect.height
-        - 0.5;
-
-
-      const portrait =
-        heroVisual.querySelector(
-          ".portrait-frame"
-        );
-
-      const cards =
-        heroVisual.querySelectorAll(
-          ".hero-card"
-        );
-
-
-      if (portrait) {
-
-        portrait.style.transform =
-          `
-          perspective(1400px)
-          rotateY(${x * 7}deg)
-          rotateX(${y * -4}deg)
-          translateY(-3px)
-          `;
-
-      }
-
-
-      cards.forEach(
-        (card, index) => {
-
-          const amount =
-            index === 0
-              ? 10
-              : -8;
-
-          card.style.transform =
-            `
-            translate(
-              ${x * amount}px,
-              ${y * amount}px
-            )
-            `;
-
-        }
-      );
-
-    }
-  );
-
-
-  heroVisual.addEventListener(
-    "mouseleave",
-    () => {
-
-      const portrait =
-        heroVisual.querySelector(
-          ".portrait-frame"
-        );
-
-      const cards =
-        heroVisual.querySelectorAll(
-          ".hero-card"
-        );
-
-
-      if (portrait) {
-
-        portrait.style.transform =
-          `
-          perspective(1400px)
-          rotateY(-5deg)
-          rotateX(0deg)
-          translateY(0)
-          `;
-
-      }
-
-
-      cards.forEach(
-        (card) => {
-
-          card.style.transform =
-            "translate(0, 0)";
-
-        }
-      );
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   15 — ESC KEY CLOSE MENU
-========================================================= */
-
-document.addEventListener(
-  "keydown",
-  (event) => {
 
     if (
-      event.key === "Escape" &&
-      nav &&
-      nav.classList.contains("open")
+        selectedCategory === "all"
     ) {
 
-      nav.classList.remove("open");
-
-      menuToggle?.classList.remove(
-        "active"
-      );
-
-      menuToggle?.setAttribute(
-        "aria-expanded",
-        "false"
-      );
+        filteredProjects =
+            projects;
 
     }
 
-  }
+    else {
+
+        filteredProjects =
+            projects.filter(
+                function (project) {
+
+                    return (
+                        project.category ===
+                        selectedCategory
+                    );
+
+                }
+            );
+
+    }
+
+
+    projectGrid.innerHTML = "";
+
+
+
+    filteredProjects.forEach(
+        function (project, index) {
+
+
+            let icon =
+                "fa-globe";
+
+
+            if (
+                project.category ===
+                "ai"
+            ) {
+
+                icon =
+                    "fa-robot";
+
+            }
+
+
+            if (
+                project.category ===
+                "fullstack"
+            ) {
+
+                icon =
+                    "fa-layer-group";
+
+            }
+
+
+            if (
+                project.category ===
+                "ui"
+            ) {
+
+                icon =
+                    "fa-pen-ruler";
+
+            }
+
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "project-card";
+
+
+            card.innerHTML = `
+
+                <div class="project-top">
+
+                    <div class="project-icon">
+
+                        <i class="fa-solid ${icon}"></i>
+
+                    </div>
+
+
+                    <span class="project-number">
+
+                        #${String(index + 1).padStart(2, "0")}
+
+                    </span>
+
+                </div>
+
+
+                <div class="project-body">
+
+                    <h3>
+
+                        ${project.title}
+
+                    </h3>
+
+
+                    <p>
+
+                        ${project.description}
+
+                    </p>
+
+
+                    <div class="project-meta">
+
+                        ${project.tech.map(
+
+                            function (technology) {
+
+                                return `
+                                    <span>
+                                        ${technology}
+                                    </span>
+                                `;
+
+                            }
+
+                        ).join("")}
+
+                    </div>
+
+
+                    <div class="project-actions">
+
+                        <a
+                            href="${project.live}"
+                            target="_blank"
+                        >
+
+                            Live Demo
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </a>
+
+
+                        <a
+                            href="${project.github}"
+                            target="_blank"
+                        >
+
+                            GitHub
+
+                            <i class="fa-brands fa-github"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            projectGrid.appendChild(
+                card
+            );
+
+        }
+    );
+
+
+
+    projectCounter.innerText =
+        `Showing ${filteredProjects.length} of ${projects.length} listed projects`;
+
+}
+
+
+
+displayProjects();
+
+
+
+/* ================= PROJECT FILTERS ================= */
+
+const filterButtons =
+    document.querySelectorAll(
+        ".filter"
+    );
+
+
+filterButtons.forEach(
+    function (button) {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+
+                filterButtons.forEach(
+                    function (btn) {
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                const category =
+                    button.dataset.filter;
+
+
+                displayProjects(
+                    category
+                );
+
+            }
+        );
+
+    }
 );
 
 
-/* =========================================================
-   16 — PAGE READY
-========================================================= */
 
-document.documentElement.classList.add(
-  "js-ready"
-);
+/* ================= CURRENT YEAR ================= */
 
-console.log(
-  "Muhammad Khateeb Ejaz Portfolio — Loaded Successfully."
-);
+document.getElementById(
+    "year"
+).innerText =
+    new Date().getFullYear();
