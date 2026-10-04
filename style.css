@@ -2325,3 +2325,514 @@ nav a:not(.nav-button):hover::after {
     }
 
 }
+
+
+
+
+/* 
+NEW FOR SET MENU OPTION MOVES KAR RAHA THA SET HOGHYA   */
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   FINAL RESPONSIVE FIX
+   Mobile + Tablet + Laptop
+========================================================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   1024px and below
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .container {
+    width: calc(100% - 32px);
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ---------- HEADER ---------- */
+
+  header {
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  .navbar {
+    height: 72px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .logo {
+    min-width: 0;
+    max-width: calc(100% - 55px);
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .logo-image {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    flex-shrink: 0;
+  }
+
+  .logo-name {
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ---------- MENU BUTTON ---------- */
+
+  .menu-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    flex-shrink: 0;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  /* ---------- MOBILE/TABLET NAV ---------- */
+
+  nav {
+    position: fixed !important;
+
+    top: 72px !important;
+    left: 16px !important;
+    right: 16px !important;
+
+    width: auto !important;
+    max-width: none !important;
+
+    max-height: calc(100vh - 88px);
+    overflow-y: auto;
+
+    padding: 14px !important;
+
+    display: none;
+
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+
+    background: rgba(17, 19, 25, 0.98);
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    z-index: 1001;
+  }
+
+  nav.open {
+    display: flex !important;
+  }
+
+  nav a {
+    width: 100%;
+    padding: 12px 10px !important;
+    border-radius: 8px;
+    text-align: left;
+  }
+
+  nav a:not(.nav-button)::after {
+    display: none !important;
+  }
+
+  nav a:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  nav .nav-button {
+    text-align: center;
+    margin-top: 6px;
+  }
+
+
+  /* ---------- HERO ---------- */
+
+  .hero-container,
+  .about-container,
+  .skills-container,
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons,
+  .social-links {
+    justify-content: center;
+  }
+
+  .hero-image {
+    min-height: 500px;
+    width: 100%;
+  }
+
+
+  /* ---------- ABOUT ---------- */
+
+  .about-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-left .small-title {
+    text-align: center;
+  }
+
+
+  /* ---------- SERVICES / PROJECTS ---------- */
+
+  .services-grid,
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-container {
+    gap: 45px;
+  }
+
+
+  /* ---------- PREVENT TEXT OVERFLOW ---------- */
+
+  .project-body h3,
+  .project-body p,
+  .project-actions a,
+  .skill-tags span {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .project-actions {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   600px and below
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .container {
+    width: calc(100% - 28px);
+    max-width: none;
+  }
+
+
+  /* ---------- HEADER ---------- */
+
+  .navbar {
+    height: 68px;
+  }
+
+  .logo {
+    gap: 8px;
+    max-width: calc(100% - 52px);
+  }
+
+  .logo-image {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .logo-name {
+    font-size: clamp(13px, 4.2vw, 18px);
+    letter-spacing: 0;
+  }
+
+  .menu-btn {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+
+  /* ---------- MOBILE NAV ---------- */
+
+  nav {
+    top: 68px !important;
+    left: 14px !important;
+    right: 14px !important;
+
+    max-height: calc(100vh - 82px);
+
+    padding: 12px !important;
+
+    border-radius: 12px;
+  }
+
+  nav a {
+    padding: 11px 10px !important;
+    font-size: 14px;
+  }
+
+
+  /* ---------- HERO ---------- */
+
+  .hero {
+    padding-top: 105px;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.2rem, 10vw, 2.8rem);
+    line-height: 1.05;
+  }
+
+  .hero-content h2 {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .hero-buttons a,
+  .hero-buttons button {
+    max-width: 100%;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+  }
+
+
+  /* ---------- HERO IMAGE ---------- */
+
+  .hero-image {
+    min-height: 430px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .profile-card {
+    width: min(290px, 86vw);
+    max-width: 100%;
+  }
+
+  .circle-one {
+    width: 350px;
+    height: 350px;
+  }
+
+  .circle-two {
+    width: 410px;
+    height: 410px;
+  }
+
+  .top-card {
+    top: 20px;
+    right: 0;
+    max-width: 145px;
+  }
+
+  .bottom-card {
+    bottom: 20px;
+    left: 0;
+    max-width: 145px;
+  }
+
+
+  /* ---------- SECTIONS ---------- */
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .section-heading > p {
+    margin-top: 15px;
+  }
+
+
+  /* ---------- SERVICES ---------- */
+
+  .services-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+
+  /* ---------- INFORMATION ---------- */
+
+  .information {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* ---------- STATS ---------- */
+
+  .stats-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-box {
+    padding: 20px 8px;
+  }
+
+  .stat-box strong {
+    font-size: 1.5rem;
+  }
+
+
+  /* ---------- CARDS ---------- */
+
+  .service-card,
+  .project-card,
+  .skill-card,
+  .contact-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+  /* ---------- FOOTER ---------- */
+
+  footer {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   380px and below
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .container {
+    width: calc(100% - 22px);
+  }
+
+  .logo-name {
+    font-size: 13px;
+  }
+
+  .logo-image {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  .menu-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  nav {
+    left: 11px !important;
+    right: 11px !important;
+  }
+
+  .hero-content h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero-image {
+    min-height: 390px;
+  }
+
+  .profile-card {
+    width: min(270px, 84vw);
+  }
+
+  .circle-one {
+    width: 310px;
+    height: 310px;
+  }
+
+  .circle-two {
+    width: 360px;
+    height: 360px;
+  }
+
+  .top-card,
+  .bottom-card {
+    max-width: 125px;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+}
