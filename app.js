@@ -1,816 +1,1183 @@
 /* =========================================================
-   MUHAMMAD KHATEEB EJAZ PORTFOLIO
-   Premium Portfolio JavaScript
-========================================================= */
+   MUHAMMAD KHATEEB EJAZ — PORTFOLIO APP
+   VIP UI / UX JavaScript
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* =========================
+     ELEMENTS
+  ========================= */
+
+  const menuBtn = document.getElementById("menuBtn");
+  const navMenu = document.getElementById("navMenu");
+  const backTop = document.getElementById("backTop");
+  const year = document.getElementById("year");
+  const projectGrid = document.getElementById("projectGrid");
+  const projectCounter = document.getElementById("projectCounter");
+  const filters = document.querySelectorAll(".filter");
 
 
-/* =========================================================
-   TYPING EFFECT
-========================================================= */
+  /* =========================
+     PAGE LOADED
+  ========================= */
 
-const typingElement = document.getElementById("typing");
+  document.body.classList.add("page-loaded");
 
-const typingWords = [
+
+  /* =========================
+     TYPING EFFECT
+  ========================= */
+
+  const typingElement = document.getElementById("typing");
+
+  const typingWords = [
     "Web Developer",
     "Front-End Developer",
     "React / Next.js Developer",
     "UI/UX Designer",
     "AI-Assisted Builder"
-];
+  ];
 
-let wordIndex = 0;
-let characterIndex = 0;
-let deleting = false;
+  let wordIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
 
-function typingEffect() {
+  function typeEffect() {
 
     if (!typingElement) return;
 
     const currentWord = typingWords[wordIndex];
 
-    if (deleting) {
-        characterIndex--;
-    } else {
-        characterIndex++;
-    }
+    if (!deleting) {
+      typingElement.textContent =
+        currentWord.substring(0, charIndex + 1);
 
-    typingElement.textContent =
-        currentWord.substring(0, characterIndex);
+      charIndex++;
 
-    let speed = deleting ? 45 : 75;
-
-    if (
-        !deleting &&
-        characterIndex === currentWord.length
-    ) {
-
-        speed = 1300;
+      if (charIndex === currentWord.length) {
         deleting = true;
 
-    } else if (
-        deleting &&
-        characterIndex === 0
-    ) {
+        setTimeout(typeEffect, 1700);
+        return;
+      }
 
+    } else {
+
+      typingElement.textContent =
+        currentWord.substring(0, charIndex - 1);
+
+      charIndex--;
+
+      if (charIndex === 0) {
         deleting = false;
 
         wordIndex =
-            (wordIndex + 1) % typingWords.length;
-
-        speed = 300;
+          (wordIndex + 1) % typingWords.length;
+      }
     }
 
-    setTimeout(typingEffect, speed);
-}
+    setTimeout(
+      typeEffect,
+      deleting ? 45 : 85
+    );
+  }
 
-typingEffect();
+  typeEffect();
 
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+  /* =========================
+     MOBILE MENU
+  ========================= */
 
-const menuButton = document.getElementById("menuBtn");
-const navigation = document.getElementById("navMenu");
+  if (menuBtn && navMenu) {
 
-if (menuButton && navigation) {
+    menuBtn.setAttribute(
+      "aria-expanded",
+      "false"
+    );
 
-    menuButton.addEventListener("click", function () {
+    menuBtn.setAttribute(
+      "aria-controls",
+      "navMenu"
+    );
 
-        const isOpen =
-            navigation.classList.toggle("open");
+    menuBtn.addEventListener("click", () => {
 
-        menuButton.setAttribute(
-            "aria-expanded",
-            isOpen ? "true" : "false"
+      const isOpen =
+        navMenu.classList.toggle("open");
+
+      menuBtn.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuBtn.classList.toggle(
+        "active",
+        isOpen
+      );
+    });
+
+
+    /* Close after clicking navigation */
+
+    navMenu.querySelectorAll("a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        navMenu.classList.remove("open");
+
+        menuBtn.classList.remove("active");
+
+        menuBtn.setAttribute(
+          "aria-expanded",
+          "false"
         );
-
-        menuButton.innerHTML = isOpen
-            ? '<i class="fa-solid fa-xmark"></i>'
-            : '<i class="fa-solid fa-bars"></i>';
+      });
 
     });
 
 
-    /* Close menu after clicking navigation link */
+    /* Close with Escape */
 
-    document
-        .querySelectorAll("#navMenu a")
-        .forEach(function (link) {
+    document.addEventListener("keydown", event => {
 
-            link.addEventListener("click", function () {
+      if (event.key === "Escape") {
 
-                navigation.classList.remove("open");
+        navMenu.classList.remove("open");
 
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
+        menuBtn.classList.remove("active");
 
-                menuButton.innerHTML =
-                    '<i class="fa-solid fa-bars"></i>';
+        menuBtn.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+      }
 
-            });
+    });
 
-        });
+  }
 
 
-    /* Close menu with Escape key */
+  /* =========================
+     HEADER SCROLL EFFECT
+  ========================= */
 
-    document.addEventListener(
-        "keydown",
-        function (event) {
+  const header =
+    document.querySelector(".site-header");
 
-            if (
-                event.key === "Escape" &&
-                navigation.classList.contains("open")
-            ) {
-
-                navigation.classList.remove("open");
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                menuButton.innerHTML =
-                    '<i class="fa-solid fa-bars"></i>';
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   HEADER SCROLL EFFECT
-========================================================= */
-
-const header = document.getElementById("header");
-
-function updateHeader() {
+  function handleHeaderScroll() {
 
     if (!header) return;
 
-    if (window.scrollY > 40) {
+    if (window.scrollY > 35) {
 
-        header.classList.add("scrolled");
+      header.classList.add("scrolled");
 
     } else {
 
-        header.classList.remove("scrolled");
+      header.classList.remove("scrolled");
 
     }
+  }
 
-}
+  handleHeaderScroll();
 
-window.addEventListener(
+  window.addEventListener(
     "scroll",
-    updateHeader,
+    handleHeaderScroll,
     { passive: true }
-);
-
-updateHeader();
+  );
 
 
-/* =========================================================
-   BACK TO TOP
-========================================================= */
+  /* =========================
+     BACK TO TOP
+  ========================= */
 
-const backTop = document.getElementById("backTop");
+  function handleBackTop() {
 
-if (backTop) {
+    if (!backTop) return;
 
-    function updateBackTop() {
+    if (window.scrollY > 600) {
 
-        if (window.scrollY > 500) {
+      backTop.classList.add("show");
 
-            backTop.classList.add("show");
+    } else {
 
-        } else {
-
-            backTop.classList.remove("show");
-
-        }
+      backTop.classList.remove("show");
 
     }
+  }
 
-    window.addEventListener(
-        "scroll",
-        updateBackTop,
-        { passive: true }
-    );
+  handleBackTop();
 
-    updateBackTop();
-
-
-    backTop.addEventListener(
-        "click",
-        function () {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-    );
-
-}
+  window.addEventListener(
+    "scroll",
+    handleBackTop,
+    { passive: true }
+  );
 
 
-/* =========================================================
-   PROJECTS
-========================================================= */
+  if (backTop) {
 
-const projects = [
+    backTop.addEventListener("click", () => {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+  }
+
+
+  /* =========================
+     CURRENT YEAR
+  ========================= */
+
+  if (year) {
+    year.textContent =
+      new Date().getFullYear();
+  }
+
+
+  /* =========================
+     PROJECT DATA
+  ========================= */
+
+  const projects = [
 
     {
-        title:
-            "Building The Future Of Marketing... AI Social Media Automation Platform Coming Soon! 🚀",
+      title:
+        "AI Social Media Automation Platform",
 
-        category:
-            "ai",
+      category: "ai",
 
-        description:
-            "An AI-powered social media automation platform designed for seamless content uploading, smart caption generation, scheduling, and performance analytics. Coming Soon! 🚀",
+      icon: "fa-solid fa-robot",
 
-        tech:
-            [
-                "Next.js",
-                "AI",
-                "APIs"
-            ],
+      description:
+        "AI-powered platform for uploading, managing, scheduling and automating social media content across multiple platforms.",
 
-        live:
-            "https://ai-social-automation-with-lashkars.vercel.app",
+      tech: [
+        "Next.js",
+        "AI",
+        "APIs",
+        "Firebase",
+        "Automation"
+      ],
 
-        github:
-            "https://github.com/MuhammadKhateebEjaz/ai-social-automation-with-lashkars"
+      live:
+        "https://ai-social-automation-with-lashkars.vercel.app",
+
+      github:
+        "https://github.com/MuhammadKhateebEjaz/ai-social-automation-with-lashkars"
     },
 
 
     {
-        title:
-            "Building The Ultimate Platform... Earn With Lashkar Coming Soon! 💻✨",
+      title:
+        "Earn With Lashkar",
 
-        category:
-            "fullstack",
+      category: "fullstack",
 
-        description:
-            "An AI-powered platform designed for content management, smart automation, scheduling, analytics, and administrative workflows.",
+      icon: "fa-solid fa-wallet",
 
-        tech:
-            [
-                "Next.js",
-                "Firebase",
-                "Admin"
-            ],
+      description:
+        "Full-stack earning and submission platform with user management, admin dashboard, withdrawals and Firebase integration.",
 
-        live:
-            "https://earn-with-lashkar.vercel.app",
+      tech: [
+        "Next.js",
+        "Firebase",
+        "Admin",
+        "Dashboard"
+      ],
 
-        github:
-            "https://github.com/MuhammadKhateebEjaz/earn-with-lashkar"
+      live: "#",
+
+      github:
+        "https://github.com/MuhammadKhateebEjaz/earn-with-lashkar"
     },
 
 
     {
-        title:
-            "🤖 AI-Powered Todo Assistant | Smart Task Management",
+      title:
+        "Todo AI Assistant",
 
-        category:
-            "ai",
+      category: "ai",
 
-        description:
-            "A modern task management application integrated with an AI chatbot for smart task interaction and productivity workflows.",
+      icon: "fa-solid fa-list-check",
 
-        tech:
-            [
-                "Next.js",
-                "AI",
-                "Chatbot"
-            ],
+      description:
+        "Smart Todo application combined with an AI chatbot experience for managing tasks and interacting with an intelligent assistant.",
 
-        live:
-            "https://hackathon-ii-phase-iii-todo-ai-chat.vercel.app",
+      tech: [
+        "Next.js",
+        "AI",
+        "Chatbot",
+        "JavaScript"
+      ],
 
-        github:
-            "https://github.com/MuhammadKhateebEjaz/Hackathon-II-Phase-III-Todo-AI-Chatbot"
+      live:
+        "https://hackathon-ii-phase-iii-todo-ai-chat.vercel.app",
+
+      github:
+        "https://github.com/MuhammadKhateebEjaz/Hackathon-II-Phase-III-Todo-AI-Chatbot"
     },
 
 
     {
-        title:
-            "📄 Client Agreement Portal | Contract & PDF Generator",
+      title:
+        "Client Agreement Portal",
 
-        category:
-            "web",
+      category: "web",
 
-        description:
-            "A web-based client agreement portal where project requirements, pricing, and terms can be organized into a downloadable PDF agreement.",
+      icon: "fa-solid fa-file-signature",
 
-        tech:
-            [
-                "HTML",
-                "CSS",
-                "JavaScript",
-                "PDF Generator"
-            ],
+      description:
+        "Professional client agreement portal for creating, previewing and generating downloadable PDF agreements.",
 
-        live:
-            "https://client-agreement-portal.vercel.app",
+      tech: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "PDF"
+      ],
 
-        github:
-            "https://github.com/MuhammadKhateebEjaz"
+      live: "#",
+
+      github:
+        "https://github.com/MuhammadKhateebEjaz"
     },
 
 
     {
-        title:
-            "🔄 Google Unit Converter App | Streamlit Utility",
+      title:
+        "Google Unit Converter",
 
-        category:
-            "ui",
+      category: "ui",
 
-        description:
-            "A Python-based unit conversion application featuring category selection, dynamic unit fields, value input, and instant conversion.",
+      icon: "fa-solid fa-arrows-rotate",
 
-        tech:
-            [
-                "Python",
-                "Streamlit"
-            ],
+      description:
+        "Clean and responsive unit conversion application designed with a simple Google-inspired interface.",
 
-        live:
-            "https://project02-unit-convertor-app-u9ndtscsz4hvlveszu7jm9.streamlit.app",
+      tech: [
+        "Python",
+        "Streamlit",
+        "UI"
+      ],
 
-        github:
-            "https://github.com/MuhammadKhateebEjaz/Project_02-Unit-Convertor-App"
+      live: "#",
+
+      github:
+        "https://github.com/MuhammadKhateebEjaz"
     },
 
 
     {
-        title:
-            "🛋️ Best Furniture Collection | Interior Store & Catalog",
+      title:
+        "Best Furniture Collection",
 
-        category:
-            "web",
+      category: "web",
 
-        description:
-            "A stylish furniture showcase and interior collection website featuring category browsing, product presentation, and modern home styling layouts.",
+      icon: "fa-solid fa-couch",
 
-        tech:
-            [
-                "HTML",
-                "CSS",
-                "JavaScript",
-                "React",
-                "Figma Design"
-            ],
+      description:
+        "Modern furniture shopping interface focused on clean product presentation, responsive layout and conversion-friendly UI.",
 
-        live:
-            "https://figma-nine-green.vercel.app",
+      tech: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Figma"
+      ],
 
-        github:
-            "https://github.com/MuhammadKhateebEjaz/Figma-Template-8"
+      live: "#",
+
+      github:
+        "https://github.com/MuhammadKhateebEjaz"
     },
 
 
     {
-        title:
-            "🛍️ Noor Online Shopping | E-Commerce Store",
+      title:
+        "Noor Online Shopping",
 
-        category:
-            "web",
+      category: "web",
 
-        description:
-            "An e-commerce platform featuring category browsing, Add to Cart functionality, cart management, WhatsApp ordering, and delivery options.",
+      icon: "fa-solid fa-cart-shopping",
 
-        tech:
-            [
-                "HTML",
-                "CSS",
-                "JavaScript",
-                "React",
-                "Add to Cart",
-                "WhatsApp Checkout"
-            ],
+      description:
+        "Responsive online shopping experience with product browsing, add-to-cart functionality and WhatsApp checkout flow.",
 
-        live:
-            "https://the-noor-online-shopping-store.vercel.app",
+      tech: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "WhatsApp"
+      ],
 
-        github:
-            "https://github.com/MuhammadKhateebEjaz/The-Noor-Online-Shopping-Store"
+      live: "#",
+
+      github:
+        "https://github.com/MuhammadKhateebEjaz"
     },
 
 
     {
-        title:
-            "🎓📚 Learn With Babar | Govt Jobs Prep Academy",
+      title:
+        "Learn With Babar",
 
-        category:
-            "fullstack",
+      category: "fullstack",
 
-        description:
-            "An educational platform designed for government job test preparation with study material, practice tests, guidance, and administrative functionality.",
+      icon: "fa-solid fa-graduation-cap",
 
-        tech:
-            [
-                "HTML",
-                "CSS",
-                "JavaScript",
-                "React",
-                "Node.js",
-                "Database",
-                "Admin Panel"
-            ],
+      description:
+        "Educational and MCQ platform featuring interactive learning content, admin functionality and database-driven experiences.",
 
-        live:
-            "https://learn-with-babar-govtjobsprep-academy.netlify.app",
+      tech: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node",
+        "Database"
+      ],
 
-        github:
-            "https://github.com/MuhammadKhateebEjaz"
+      live: "#",
+
+      github:
+        "https://github.com/MuhammadKhateebEjaz"
     },
 
 
     {
-        title:
-            "📚 Personal Library Manager | Streamlit App",
+      title:
+        "Personal Library Manager",
 
-        category:
-            "ui",
+      category: "ui",
 
-        description:
-            "A Python and Streamlit library management application featuring Add Book, View Books, Search Book, and Remove Book functionality.",
+      icon: "fa-solid fa-book",
 
-        tech:
-            [
-                "Python",
-                "Streamlit"
-            ],
+      description:
+        "Personal library management application for organizing books and maintaining a simple digital collection.",
 
-        live:
-            "https://project04personal-library-manager-mp9wqx9z4r9wttmyaahk8n.streamlit.app",
+      tech: [
+        "Python",
+        "Streamlit",
+        "UI"
+      ],
 
-        github:
-            "https://github.com/MuhammadKhateebEjaz/Project_04_Personal-Library-Manager"
+      live: "#",
+
+      github:
+        "https://github.com/MuhammadKhateebEjaz"
     },
 
 
     {
-        title:
-            "💿 Data Sweeper — File Transformation & Cleaning Tool",
+      title:
+        "Data Sweeper",
 
-        category:
-            "ui",
+      category: "ui",
 
-        description:
-            "A file transformation and data cleaning tool supporting CSV and Excel workflows with data processing and visualization features.",
+      icon: "fa-solid fa-database",
 
-        tech:
-            [
-                "Python",
-                "Streamlit"
-            ],
+      description:
+        "Data utility application designed to process, clean and manage datasets through an easy-to-use interface.",
 
-        live:
-            "https://muhammadkhateebejaz-growth-mindset-challe-file-converter-lfxgpj.streamlit.app",
+      tech: [
+        "Python",
+        "Streamlit",
+        "Data"
+      ],
 
-        github:
-            "https://github.com/MuhammadKhateebEjaz/Growth-Mindset-Challenge-Web-App-With-Giaic-Quarter-3-Project-1-"
+      live: "#",
+
+      github:
+        "https://github.com/MuhammadKhateebEjaz"
     },
 
 
     {
-        title:
-            "🛍️ Uzma Enterprise Shopping Store | E-Commerce Platform",
+      title:
+        "Uzma Enterprise Shopping Store",
 
-        category:
-            "web",
+      category: "web",
 
-        description:
-            "An e-commerce shopping platform featuring product presentation, Add to Cart functionality, and WhatsApp-based ordering workflows.",
+      icon: "fa-solid fa-store",
 
-        tech:
-            [
-                "HTML",
-                "CSS",
-                "JavaScript",
-                "React",
-                "Add to Cart",
-                "WhatsApp Checkout"
-            ],
+      description:
+        "Responsive business e-commerce website with product browsing, shopping interactions and WhatsApp checkout.",
 
-        live:
-            "https://uzma-enterprices-shopping-store.vercel.app",
+      tech: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "WhatsApp"
+      ],
 
-        github:
-            "https://github.com/MuhammadKhateebEjaz/"
+      live: "#",
+
+      github:
+        "https://github.com/MuhammadKhateebEjaz"
     },
 
 
     {
-        title:
-            "🔐 Password Strength Meter | Security Tool",
+      title:
+        "Password Strength Meter",
 
-        category:
-            "ui",
+      category: "ui",
 
-        description:
-            "A security utility that analyzes password strength in real time and provides feedback based on password complexity.",
+      icon: "fa-solid fa-shield-halved",
 
-        tech:
-            [
-                "Python",
-                "Streamlit"
-            ],
+      description:
+        "Interactive password security tool that evaluates password strength and provides a simple visual user experience.",
 
-        live:
-            "https://project03-password-strength-meter-tkj2amappytxviynh4cag8x.streamlit.app",
+      tech: [
+        "Python",
+        "Streamlit",
+        "Security",
+        "UI"
+      ],
 
-        github:
-            "https://github.com/MuhammadKhateebEjaz/Project_03-Password-Strength-Meter"
+      live: "#",
+
+      github:
+        "https://github.com/MuhammadKhateebEjaz"
     }
 
-];
+  ];
 
 
-/* =========================================================
-   PROJECT DISPLAY
-========================================================= */
+  /* =========================
+     PROJECT ICON FALLBACK
+  ========================= */
 
-const projectGrid =
-    document.getElementById("projectGrid");
+  function getProjectIcon(project) {
 
-const projectCounter =
-    document.getElementById("projectCounter");
+    if (project.icon) {
+      return `<i class="${project.icon}"></i>`;
+    }
+
+    return `<i class="fa-solid fa-code"></i>`;
+  }
 
 
-function getProjectIcon(category) {
+  /* =========================
+     PROJECT CATEGORY NAME
+  ========================= */
 
-    const icons = {
+  function getCategoryName(category) {
 
-        ai:
-            "fa-robot",
-
-        fullstack:
-            "fa-layer-group",
-
-        ui:
-            "fa-pen-ruler",
-
-        web:
-            "fa-globe"
-
+    const names = {
+      all: "All",
+      web: "Web",
+      fullstack: "Full Stack",
+      ai: "AI",
+      ui: "UI / UX"
     };
 
-    return icons[category] || "fa-globe";
-}
+    return names[category] || category;
+  }
 
 
-function displayProjects(selectedCategory = "all") {
+  /* =========================
+     PROJECT CARD
+  ========================= */
+
+  function createProjectCard(project) {
+
+    const techHTML =
+      project.tech
+        .map(
+          tech => `<span>${tech}</span>`
+        )
+        .join("");
+
+
+    const liveButton =
+      project.live && project.live !== "#"
+        ? `
+          <a
+            href="${project.live}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live Demo
+          </a>
+        `
+        : `
+          <a
+            href="#contact"
+            aria-label="Contact Muhammad Khateeb Ejaz"
+          >
+            Contact
+          </a>
+        `;
+
+
+    const githubButton =
+      project.github && project.github !== "#"
+        ? `
+          <a
+            href="${project.github}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        `
+        : "";
+
+
+    return `
+      <article
+        class="project-card"
+        data-category="${project.category}"
+      >
+
+        <div class="project-top">
+
+          <div class="project-icon">
+            ${getProjectIcon(project)}
+          </div>
+
+          <span class="project-category">
+            ${getCategoryName(project.category)}
+          </span>
+
+        </div>
+
+
+        <div class="project-body">
+
+          <h3>
+            ${project.title}
+          </h3>
+
+          <p>
+            ${project.description}
+          </p>
+
+
+          <div class="project-tech">
+            ${techHTML}
+          </div>
+
+
+          <div class="project-actions">
+            ${liveButton}
+            ${githubButton}
+          </div>
+
+        </div>
+
+      </article>
+    `;
+  }
+
+
+  /* =========================
+     RENDER PROJECTS
+  ========================= */
+
+  function renderProjects(category = "all") {
 
     if (!projectGrid) return;
 
+
     const filteredProjects =
-        selectedCategory === "all"
-            ? projects
-            : projects.filter(
-                function (project) {
-
-                    return project.category ===
-                        selectedCategory;
-
-                }
-            );
+      category === "all"
+        ? projects
+        : projects.filter(
+            project =>
+              project.category === category
+          );
 
 
-    projectGrid.innerHTML = "";
-
-
-    filteredProjects.forEach(
-        function (project, index) {
-
-            const icon =
-                getProjectIcon(
-                    project.category
-                );
-
-
-            const card =
-                document.createElement("article");
-
-
-            card.className =
-                "project-card";
-
-
-            card.innerHTML = `
-
-                <div class="project-top">
-
-                    <div class="project-icon">
-
-                        <i
-                            class="fa-solid ${icon}"
-                            aria-hidden="true"
-                        ></i>
-
-                    </div>
-
-
-                    <span class="project-number">
-
-                        #${String(index + 1).padStart(2, "0")}
-
-                    </span>
-
-                </div>
-
-
-                <div class="project-body">
-
-                    <h3>
-                        ${project.title}
-                    </h3>
-
-
-                    <p>
-                        ${project.description}
-                    </p>
-
-
-                    <div class="project-meta">
-
-                        ${project.tech.map(
-
-                            function (technology) {
-
-                                return `
-                                    <span>
-                                        ${technology}
-                                    </span>
-                                `;
-
-                            }
-
-                        ).join("")}
-
-                    </div>
-
-
-                    <div class="project-actions">
-
-                        <a
-                            href="${project.live}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Open live demo of ${project.title}"
-                        >
-
-                            Live Demo
-
-                            <i
-                                class="fa-solid fa-arrow-up-right-from-square"
-                                aria-hidden="true"
-                            ></i>
-
-                        </a>
-
-
-                        <a
-                            href="${project.github}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Open GitHub repository of ${project.title}"
-                        >
-
-                            GitHub
-
-                            <i
-                                class="fa-brands fa-github"
-                                aria-hidden="true"
-                            ></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            `;
-
-
-            projectGrid.appendChild(card);
-
-        }
-    );
+    projectGrid.innerHTML =
+      filteredProjects
+        .map(createProjectCard)
+        .join("");
 
 
     if (projectCounter) {
 
-        projectCounter.innerText =
-            `Showing ${filteredProjects.length} of ${projects.length} listed projects`;
+      projectCounter.textContent =
+        `${filteredProjects.length} Projects`;
 
     }
 
-}
+
+    /* Small entrance animation */
+
+    const cards =
+      projectGrid.querySelectorAll(
+        ".project-card"
+      );
+
+    cards.forEach((card, index) => {
+
+      card.style.opacity = "0";
+
+      card.style.transform =
+        "translateY(15px)";
+
+      setTimeout(() => {
+
+        card.style.opacity = "1";
+
+        card.style.transform =
+          "";
+
+      }, index * 45);
+
+    });
 
 
-displayProjects();
+    /* Scroll to projects on mobile */
+
+    if (
+      window.innerWidth <= 700 &&
+      category !== "all"
+    ) {
+
+      const projectsSection =
+        document.getElementById("projects");
+
+      if (projectsSection) {
+
+        setTimeout(() => {
+
+          projectsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }, 100);
+
+      }
+
+    }
+
+  }
 
 
-/* =========================================================
-   PROJECT FILTERS
-========================================================= */
+  /* =========================
+     PROJECT FILTERS
+  ========================= */
 
-const filterButtons =
-    document.querySelectorAll(".filter");
+  filters.forEach(filter => {
 
+    filter.addEventListener(
+      "click",
+      () => {
 
-filterButtons.forEach(
-    function (button) {
+        filters.forEach(item => {
+          item.classList.remove("active");
+        });
 
-        button.addEventListener(
-            "click",
-            function () {
-
-                filterButtons.forEach(
-                    function (btn) {
-
-                        btn.classList.remove("active");
-
-                    }
-                );
+        filter.classList.add("active");
 
 
-                button.classList.add("active");
+        const category =
+          filter.dataset.filter ||
+          filter.getAttribute(
+            "data-category"
+          ) ||
+          "all";
 
 
-                const category =
-                    button.dataset.filter;
+        renderProjects(category);
+
+      }
+    );
+
+  });
 
 
-                displayProjects(category);
+  /* Initial render */
+
+  renderProjects("all");
 
 
-                /* Smooth scroll on smaller screens */
+  /* =========================
+     3D PROJECT TILT
+  ========================= */
 
-                if (
-                    window.innerWidth <= 700
-                ) {
+  function enableProjectTilt() {
 
-                    const projectsSection =
-                        document.getElementById("projects");
+    if (window.innerWidth <= 900) {
+      return;
+    }
 
-                    if (projectsSection) {
 
-                        projectsSection.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start"
-                        });
+    const cards =
+      document.querySelectorAll(
+        ".project-card"
+      );
 
-                    }
 
-                }
+    cards.forEach(card => {
+
+      card.addEventListener(
+        "mousemove",
+        event => {
+
+          const rect =
+            card.getBoundingClientRect();
+
+          const x =
+            event.clientX - rect.left;
+
+          const y =
+            event.clientY - rect.top;
+
+
+          const centerX =
+            rect.width / 2;
+
+          const centerY =
+            rect.height / 2;
+
+
+          const rotateY =
+            ((x - centerX) / centerX) * 3;
+
+
+          const rotateX =
+            ((centerY - y) / centerY) * 3;
+
+
+          card.style.transform = `
+            translateY(-10px)
+            perspective(1200px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+          `;
+
+        }
+      );
+
+
+      card.addEventListener(
+        "mouseleave",
+        () => {
+
+          card.style.transform = "";
+
+        }
+      );
+
+    });
+
+  }
+
+
+  /*
+     Run after project cards are rendered
+  */
+
+  setTimeout(
+    enableProjectTilt,
+    150
+  );
+
+
+  /* =========================
+     MAGNETIC BUTTON EFFECT
+  ========================= */
+
+  if (window.innerWidth > 900) {
+
+    const buttons =
+      document.querySelectorAll(
+        ".btn-primary, .nav-button"
+      );
+
+
+    buttons.forEach(button => {
+
+      button.addEventListener(
+        "mousemove",
+        event => {
+
+          const rect =
+            button.getBoundingClientRect();
+
+          const x =
+            event.clientX - rect.left;
+
+          const y =
+            event.clientY - rect.top;
+
+          const moveX =
+            (x - rect.width / 2) * 0.08;
+
+          const moveY =
+            (y - rect.height / 2) * 0.08;
+
+          button.style.transform =
+            `translate(${moveX}px, ${moveY}px)`;
+
+        }
+      );
+
+
+      button.addEventListener(
+        "mouseleave",
+        () => {
+
+          button.style.transform = "";
+
+        }
+      );
+
+    });
+
+  }
+
+
+  /* =========================
+     IMAGE PARALLAX
+  ========================= */
+
+  const heroImage =
+    document.querySelector(
+      ".hero-image-wrap"
+    );
+
+
+  if (
+    heroImage &&
+    window.innerWidth > 900
+  ) {
+
+    window.addEventListener(
+      "mousemove",
+      event => {
+
+        const x =
+          (event.clientX /
+            window.innerWidth -
+            0.5);
+
+        const y =
+          (event.clientY /
+            window.innerHeight -
+            0.5);
+
+
+        heroImage.style.transform = `
+          perspective(1200px)
+          rotateY(${x * 5}deg)
+          rotateX(${y * -4}deg)
+        `;
+
+      },
+      { passive: true }
+    );
+
+  }
+
+
+  /* =========================
+     SMOOTH INTERNAL LINKS
+  ========================= */
+
+  document
+    .querySelectorAll(
+      'a[href^="#"]'
+    )
+    .forEach(link => {
+
+      link.addEventListener(
+        "click",
+        event => {
+
+          const targetID =
+            link.getAttribute("href");
+
+
+          if (
+            !targetID ||
+            targetID === "#"
+          ) {
+            return;
+          }
+
+
+          const target =
+            document.querySelector(
+              targetID
+            );
+
+
+          if (!target) return;
+
+
+          event.preventDefault();
+
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }
+      );
+
+    });
+
+
+  /* =========================
+     ACTIVE NAV LINK
+  ========================= */
+
+  const sections =
+    document.querySelectorAll(
+      "main section[id]"
+    );
+
+  const navLinks =
+    document.querySelectorAll(
+      ".nav-menu a[href^='#']"
+    );
+
+
+  function updateActiveNav() {
+
+    let currentSection = "";
+
+
+    sections.forEach(section => {
+
+      const sectionTop =
+        section.offsetTop - 150;
+
+      const sectionHeight =
+        section.offsetHeight;
+
+
+      if (
+        window.scrollY >= sectionTop &&
+        window.scrollY <
+          sectionTop + sectionHeight
+      ) {
+
+        currentSection =
+          section.getAttribute("id");
+
+      }
+
+    });
+
+
+    navLinks.forEach(link => {
+
+      const href =
+        link.getAttribute("href");
+
+
+      link.classList.toggle(
+        "active",
+        href === `#${currentSection}`
+      );
+
+    });
+
+  }
+
+
+  updateActiveNav();
+
+
+  window.addEventListener(
+    "scroll",
+    updateActiveNav,
+    { passive: true }
+  );
+
+
+  /* =========================
+     INTERSECTION REVEAL
+  ========================= */
+
+  const revealElements =
+    document.querySelectorAll(
+      ".section-heading, .service-card, .stat-card, .about-image, .skills-layout, .contact-box"
+    );
+
+
+  if (
+    "IntersectionObserver" in window
+  ) {
+
+    const revealObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add(
+                "is-visible"
+              );
+
+              revealObserver.unobserve(
+                entry.target
+              );
 
             }
-        );
 
-    }
-);
+          });
 
-
-/* =========================================================
-   CURRENT YEAR
-========================================================= */
-
-const yearElement =
-    document.getElementById("year");
+        },
+        {
+          threshold: 0.12
+        }
+      );
 
 
-if (yearElement) {
+    revealElements.forEach(element => {
 
-    yearElement.innerText =
-        new Date().getFullYear();
+      element.classList.add(
+        "reveal-ready"
+      );
 
-}
+      revealObserver.observe(
+        element
+      );
+
+    });
+
+  }
 
 
-/* =========================================================
-   PAGE LOAD
-========================================================= */
+  /* =========================
+     CONSOLE BRANDING
+  ========================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+  console.log(
+    "%c Muhammad Khateeb Ejaz ",
+    `
+      background:#d7a84b;
+      color:#080808;
+      padding:8px 14px;
+      border-radius:8px;
+      font-weight:bold;
+    `
+  );
 
-        document.body.classList.add(
-            "page-loaded"
-        );
+  console.log(
+    "VIP Portfolio • AI-Assisted Development"
+  );
 
-    }
-);
+});
