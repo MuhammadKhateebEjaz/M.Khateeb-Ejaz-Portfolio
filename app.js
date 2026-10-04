@@ -14,7 +14,7 @@ const typingWords = [
 
     "Web Developer",
     "Front-End Developer",
-    "BACK-End Developer",
+    "Back-End Developer",
     "React / Next.js Developer",
     "UI/UX Designer",
     "AI-Assisted Builder"
