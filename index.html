@@ -1,293 +1,297 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
 
-    <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Muhammad Khateeb Ejaz — Front-End Developer, Web Developer and AI-Assisted Builder from Karachi, Pakistan."
+  >
 
-    <meta name="description"
-        content="Muhammad Khateeb Ejaz — Web Developer, Front-End Developer, UI/UX Designer and AI-Assisted Builder.">
+  <meta
+    name="theme-color"
+    content="#08090c"
+  >
 
-    <meta name="author"
-        content="Muhammad Khateeb Ejaz">
+  <title>
+    Muhammad Khateeb Ejaz | Web Developer
+  </title>
 
-    <meta name="theme-color"
-        content="#0b0d11">
+  <!-- Google Fonts -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
-    <title>
-        Muhammad Khateeb Ejaz | Web Developer
-    </title>
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-    <!-- ================= FONTS ================= -->
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
 
-    <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet">
-
-
-    <!-- ================= FONT AWESOME ================= -->
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
-    <!-- ================= CSS ================= -->
-
-    <link rel="stylesheet"
-        href="style.css">
-
+  <!-- Main CSS -->
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 </head>
 
 
 <body>
 
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+  <header class="header" id="header">
 
-<header id="header">
+    <div class="container header-inner">
 
-    <div class="container navbar">
+      <a
+        href="#home"
+        class="brand"
+        aria-label="Muhammad Khateeb Ejaz Home"
+      >
+
+        <div class="brand-mark">
+          <img
+            src="AS.jpg"
+            alt="Muhammad Khateeb Ejaz"
+          >
+        </div>
+
+        <div class="brand-text">
+
+          <strong>
+            Muhammad Khateeb
+          </strong>
+
+          <span>
+            EJAZ
+          </span>
+
+        </div>
+
+      </a>
 
 
-        <!-- LOGO -->
+      <nav
+        class="nav"
+        id="nav"
+        aria-label="Main Navigation"
+      >
 
-        <a href="#home"
-            class="logo"
-            aria-label="Muhammad Khateeb Ejaz Home">
-
-            <span class="logo-image">
-
-                <img
-                    src="AS.jpg"
-                    alt="Muhammad Khateeb Ejaz">
-
-            </span>
-
-
-            <span class="logo-name">
-
-                <span class="gold">
-                    Muhammad
-                </span>
-
-                Khateeb
-
-                <span class="gold">
-                    Ejaz
-                </span>
-
-            </span>
-
+        <a href="#home" class="nav-link active">
+          Home
         </a>
 
+        <a href="#about" class="nav-link">
+          About
+        </a>
 
-        <!-- MOBILE MENU -->
+        <a href="#services" class="nav-link">
+          Services
+        </a>
 
-        <button
-            id="menuBtn"
-            class="menu-btn"
-            type="button"
-            aria-label="Open navigation menu"
-            aria-controls="navMenu"
-            aria-expanded="false">
+        <a href="#skills" class="nav-link">
+          Skills
+        </a>
 
-            <i class="fa-solid fa-bars"></i>
+        <a href="#projects" class="nav-link">
+          Projects
+        </a>
 
-        </button>
+        <a
+          href="#contact"
+          class="nav-cta"
+        >
+          Let's Talk
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+      </nav>
 
 
-        <!-- NAVIGATION -->
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
 
-        <nav id="navMenu"
-            aria-label="Main navigation">
+        <span></span>
+        <span></span>
+        <span></span>
 
-            <a href="#home">
-                Home
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#services">
-                Services
-            </a>
-
-            <a href="#skills">
-                Skills
-            </a>
-
-            <a href="#projects">
-                Projects
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-            <a href="#contact"
-                class="nav-button">
-
-                Let's Talk
-
-            </a>
-
-        </nav>
+      </button>
 
     </div>
 
-</header>
+  </header>
 
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
-<main>
+  <main>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
-<section id="home"
-    class="hero">
+    <section
+      class="hero"
+      id="home"
+    >
 
-    <div class="container hero-container">
-
-
-        <!-- HERO CONTENT -->
+      <div class="hero-grid">
 
         <div class="hero-content">
 
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
 
-            <p class="small-title">
+            AVAILABLE FOR OPPORTUNITIES
 
-                <span></span>
-
-                INTRODUCING
-
-            </p>
+          </div>
 
 
-            <h1>
+          <h1>
 
-                Hello, I'm
+            Building
+            <span class="gold-text">
+              Digital Experiences
+            </span>
 
-                <br>
+            that feel
+            <span class="outline-text">
+              Different.
+            </span>
 
-                <strong>
-
-                    Muhammad
-
-                    <span class="gold">
-                        Khateeb Ejaz
-                    </span>
-
-                </strong>
-
-            </h1>
+          </h1>
 
 
-            <h2>
+          <p class="hero-description">
 
-                I'm a
+            I'm
+            <strong>
+              Muhammad Khateeb Ejaz
+            </strong>
+            — a Karachi-based Web Developer focused on
+            responsive interfaces, modern front-end development,
+            AI-assisted applications and practical digital solutions.
 
-                <span id="typing">
-                    Web Developer
-                </span>
-
-            </h2>
-
-
-            <p class="hero-description">
-
-                I build modern, responsive websites,
-                web applications and digital experiences
-                with a strong focus on clean UI, usability
-                and real-world functionality.
-
-            </p>
+          </p>
 
 
-            <!-- HERO BUTTONS -->
+          <div class="typing-line">
 
-            <div class="hero-buttons">
+            <span>
+              I work with
+            </span>
 
-                <a href="#projects"
-                    class="btn primary-btn">
+            <strong id="typing">
+              HTML, CSS & JavaScript
+            </strong>
 
-                    View Projects
+            <span class="typing-cursor">
+              |
+            </span>
 
-                    <i class="fa-solid fa-arrow-right"></i>
-
-                </a>
+          </div>
 
 
-                <a href="#contact"
-                    class="btn outline-btn">
+          <div class="hero-actions">
 
-                    Contact Me
+            <a
+              href="#projects"
+              class="button button-primary"
+            >
 
-                </a>
+              View My Work
+
+              <i class="fa-solid fa-arrow-down"></i>
+
+            </a>
+
+
+            <a
+              href="#contact"
+              class="button button-secondary"
+            >
+
+              Contact Me
+
+              <i class="fa-regular fa-paper-plane"></i>
+
+            </a>
+
+          </div>
+
+
+          <div class="hero-meta">
+
+            <div class="hero-meta-item">
+
+              <strong>
+                70+
+              </strong>
+
+              <span>
+                Projects
+              </span>
+
+            </div>
+
+
+            <div class="hero-meta-line"></div>
+
+
+            <div class="hero-meta-item">
+
+              <strong>
+                15+
+              </strong>
+
+              <span>
+                Technologies
+              </span>
 
             </div>
 
 
-            <!-- SOCIAL LINKS -->
-
-            <div class="social-links">
+            <div class="hero-meta-line"></div>
 
 
-                <a
-                    href="https://github.com/MuhammadKhateebEjaz"
-                    target="_blank"
-                    rel="noopener noreferrer">
+            <div class="hero-meta-item">
 
-                    <i class="fa-brands fa-github"></i>
+              <strong>
+                2023
+              </strong>
 
-                    GitHub
-
-                </a>
-
-
-                <a
-                    href="https://www.linkedin.com/in/muhammad-khateeb-ejaz-40943a2a1/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    <i class="fa-brands fa-linkedin"></i>
-
-                    LinkedIn
-
-                </a>
-
-
-                <a
-                    href="mailto:khateebejaz2@gmail.com">
-
-                    <i class="fa-solid fa-envelope"></i>
-
-                    Email
-
-                </a>
+              <span>
+                Hands-on Since
+              </span>
 
             </div>
+
+          </div>
 
         </div>
 
@@ -295,1142 +299,1104 @@
 
         <!-- HERO VISUAL -->
 
-        <div class="hero-image">
+        <div class="hero-visual">
+
+          <div class="hero-glow"></div>
+
+          <div class="hero-grid-lines"></div>
 
 
-            <div class="circle circle-one"></div>
+          <div class="portrait-frame">
 
-            <div class="circle circle-two"></div>
+            <div class="portrait-top">
 
+              <span>
+                MK
+              </span>
 
-            <!-- PROFILE -->
-
-            <div class="profile-card">
-
-                <img
-                    src="photo5.png"
-                    alt="Muhammad Khateeb Ejaz">
-
-                <div class="profile-label">
-
-                    <i class="fa-solid fa-code"></i>
-
-                    Web Developer
-
-                </div>
+              <span>
+                01 / 01
+              </span>
 
             </div>
 
 
-            <!-- FLOATING CARD -->
+            <div class="portrait-image">
 
-            <div class="floating-card top-card">
-
-                <i class="fa-solid fa-layer-group"></i>
-
-                <div>
-
-                    <strong>
-                        70+
-                    </strong>
-
-                    <small>
-                        Projects
-                    </small>
-
-                </div>
+              <img
+                src="photo5.png"
+                alt="Muhammad Khateeb Ejaz"
+              >
 
             </div>
 
 
-            <!-- FLOATING CARD -->
+            <div class="portrait-bottom">
 
-            <div class="floating-card bottom-card">
+              <div>
 
-                <i class="fa-solid fa-bolt"></i>
+                <small>
+                  BASED IN
+                </small>
 
-                <div>
+                <strong>
+                  KARACHI, PK
+                </strong>
 
-                    <strong>
-                        AI + Web
-                    </strong>
+              </div>
 
-                    <small>
-                        Building Ideas
-                    </small>
 
-                </div>
+              <div class="portrait-status">
+
+                <span></span>
+
+                Open to Work
+
+              </div>
 
             </div>
 
-        </div>
-
-    </div>
-
-</section>
+          </div>
 
 
+          <div class="hero-card hero-card-top">
 
-<!-- =====================================================
-     STATS
-===================================================== -->
-
-<section class="stats">
-
-    <div class="container stats-container">
-
-
-        <div class="stat-box">
-
-            <strong>
-                70+
-            </strong>
-
-            <span>
-                Projects
+            <span class="mini-label">
+              CURRENT FOCUS
             </span>
 
-        </div>
-
-
-        <div class="stat-box">
-
             <strong>
-                15+
+              Web + AI
             </strong>
 
-            <span>
-                Technologies
-            </span>
+            <small>
+              Building useful digital products
+            </small>
 
-        </div>
-
-
-        <div class="stat-box">
-
-            <strong>
-                2023
-            </strong>
-
-            <span>
-                Hands-on Since
-            </span>
-
-        </div>
+          </div>
 
 
-        <div class="stat-box">
+          <div class="hero-card hero-card-bottom">
 
-            <strong>
-                AI
-            </strong>
+            <div class="hero-card-icon">
 
-            <span>
-                Assisted Workflow
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section id="about"
-    class="section">
-
-    <div class="container about-container">
-
-
-        <!-- ABOUT LEFT -->
-
-        <div class="about-left">
-
-
-            <p class="small-title">
-                # ABOUT ME
-            </p>
-
-
-            <h2>
-
-                Turning ideas into
-
-                <span class="gold">
-                    working experiences.
-                </span>
-
-            </h2>
-
-
-            <div class="about-image">
-
-                <img
-                    src="picture.png"
-                    alt="Muhammad Khateeb Ejaz">
-
-                <div class="location">
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    Karachi, Pakistan
-
-                </div>
+              <i class="fa-solid fa-code"></i>
 
             </div>
-
-        </div>
-
-
-
-        <!-- ABOUT CONTENT -->
-
-        <div class="about-content">
-
-
-            <p class="about-big-text">
-
-                I'm Muhammad Khateeb Ejaz,
-                a self-driven web developer focused
-                on building practical digital products
-                and improving through real projects.
-
-            </p>
-
-
-            <p>
-
-                My strongest areas are HTML, CSS and
-                JavaScript, with hands-on work across
-                React, Next.js, Tailwind CSS, Bootstrap,
-                Firebase, APIs, Git/GitHub and
-                AI-assisted development.
-
-            </p>
-
-
-            <p>
-
-                I also explore Node.js, Python, UI/UX,
-                automation and AI-powered web applications
-                to turn ideas into useful digital products.
-
-            </p>
-
-
-            <!-- INFORMATION -->
-
-            <div class="information">
-
-
-                <div>
-
-                    <span>
-                        Name
-                    </span>
-
-                    <strong>
-                        Muhammad Khateeb Ejaz
-                    </strong>
-
-                </div>
-
-
-                <div>
-
-                    <span>
-                        Role
-                    </span>
-
-                    <strong>
-                        Web Developer
-                    </strong>
-
-                </div>
-
-
-                <div>
-
-                    <span>
-                        Location
-                    </span>
-
-                    <strong>
-                        Karachi, Pakistan
-                    </strong>
-
-                </div>
-
-
-                <div>
-
-                    <span>
-                        Focus
-                    </span>
-
-                    <strong>
-                        Web + AI + UI/UX
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <a href="#contact"
-                class="text-link">
-
-                Let's build something
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SERVICES
-===================================================== -->
-
-<section id="services"
-    class="section dark-section">
-
-    <div class="container">
-
-
-        <div class="section-heading">
 
             <div>
 
-                <p class="small-title">
-                    # SERVICES
-                </p>
+              <strong>
+                Front-End
+              </strong>
 
-                <h2>
+              <small>
+                HTML • CSS • JS • React
+              </small>
 
-                    What I can
+            </div>
 
-                    <span class="gold">
-                        build.
-                    </span>
+          </div>
 
-                </h2>
+        </div>
+
+      </div>
+
+
+      <div class="scroll-indicator">
+
+        <span>
+          SCROLL TO EXPLORE
+        </span>
+
+        <i class="fa-solid fa-arrow-down"></i>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section
+      class="section about-section"
+      id="about"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-number">
+            01
+          </div>
+
+          <div>
+
+            <span class="section-label">
+              ABOUT ME
+            </span>
+
+            <h2>
+              Developer with a
+              <span>
+                builder mindset.
+              </span>
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="about-layout">
+
+
+          <div class="about-image-card">
+
+            <div class="about-image">
+
+              <img
+                src="picture.png"
+                alt="Muhammad Khateeb Ejaz"
+              >
 
             </div>
 
 
-            <p>
+            <div class="about-image-caption">
 
-                Modern websites, web applications,
-                UI/UX interfaces and AI-assisted
-                digital products.
+              <span>
+                MUHAMMAD KHATEEB EJAZ
+              </span>
+
+              <small>
+                WEB DEVELOPER • AI BUILDER
+              </small>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="about-content">
+
+            <p class="large-text">
+
+              I enjoy turning ideas into
+              <strong>
+                real, usable websites and applications.
+              </strong>
 
             </p>
 
+
+            <p>
+
+              My strongest areas are HTML, CSS and JavaScript,
+              with hands-on experience building projects using
+              React, Next.js, Tailwind CSS, Bootstrap, Firebase,
+              APIs and other modern tools.
+
+            </p>
+
+
+            <p>
+
+              I also use AI-assisted development to research,
+              prototype, debug and accelerate development while
+              keeping the product direction, design decisions
+              and implementation under my control.
+
+            </p>
+
+
+            <div class="about-details">
+
+              <div class="detail">
+
+                <span>
+                  LOCATION
+                </span>
+
+                <strong>
+                  Karachi, Pakistan
+                </strong>
+
+              </div>
+
+
+              <div class="detail">
+
+                <span>
+                  ROLE
+                </span>
+
+                <strong>
+                  Web Developer
+                </strong>
+
+              </div>
+
+
+              <div class="detail">
+
+                <span>
+                  EXPERIENCE
+                </span>
+
+                <strong>
+                  Hands-on Projects
+                </strong>
+
+              </div>
+
+
+              <div class="detail">
+
+                <span>
+                  FOCUS
+                </span>
+
+                <strong>
+                  Web + AI
+                </strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SERVICES
+    ====================================================== -->
+
+    <section
+      class="section services-section"
+      id="services"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-number">
+            02
+          </div>
+
+          <div>
+
+            <span class="section-label">
+              WHAT I DO
+            </span>
+
+            <h2>
+              Turning ideas into
+              <span>
+                digital products.
+              </span>
+            </h2>
+
+          </div>
+
+        </div>
 
 
         <div class="services-grid">
 
 
-            <!-- SERVICE 01 -->
+          <article class="service-card">
 
-            <article class="service-card">
+            <div class="service-number">
+              01
+            </div>
 
-                <i class="fa-solid fa-code"></i>
+            <div class="service-icon">
 
-                <h3>
-                    Web Development
-                </h3>
+              <i class="fa-solid fa-code"></i>
 
-                <p>
+            </div>
 
-                    Responsive websites and modern
-                    web applications designed for
-                    real users and devices.
+            <h3>
+              Web Development
+            </h3>
 
-                </p>
+            <p>
+              Responsive, modern websites and web interfaces
+              built with clean structure and practical UX.
+            </p>
 
-                <span>
-                    HTML · CSS · JavaScript · React · Next.js
-                </span>
+            <div class="service-link">
+              Explore
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
 
-            </article>
-
-
-            <!-- SERVICE 02 -->
-
-            <article class="service-card">
-
-                <i class="fa-solid fa-cart-shopping"></i>
-
-                <h3>
-                    E-Commerce
-                </h3>
-
-                <p>
-
-                    Modern online stores and
-                    product-focused interfaces
-                    with practical functionality.
-
-                </p>
-
-                <span>
-                    UI · APIs · Firebase
-                </span>
-
-            </article>
+          </article>
 
 
-            <!-- SERVICE 03 -->
 
-            <article class="service-card">
+          <article class="service-card">
 
-                <i class="fa-solid fa-pen-ruler"></i>
+            <div class="service-number">
+              02
+            </div>
 
-                <h3>
-                    UI/UX Design
-                </h3>
+            <div class="service-icon">
 
-                <p>
+              <i class="fa-solid fa-cart-shopping"></i>
 
-                    Clean, responsive and
-                    user-focused interfaces
-                    with strong visual hierarchy.
+            </div>
 
-                </p>
+            <h3>
+              E-Commerce
+            </h3>
 
-                <span>
-                    Figma · Canva · Responsive UI
-                </span>
+            <p>
+              Product-focused shopping experiences with
+              responsive layouts, cart flows and WhatsApp
+              checkout solutions.
+            </p>
 
-            </article>
+            <div class="service-link">
+              Explore
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
 
-
-            <!-- SERVICE 04 -->
-
-            <article class="service-card">
-
-                <i class="fa-solid fa-robot"></i>
-
-                <h3>
-                    AI & Automation
-                </h3>
-
-                <p>
-
-                    AI-assisted features, chatbots,
-                    automation concepts and
-                    intelligent web experiences.
-
-                </p>
-
-                <span>
-                    AI · APIs · Agents
-                </span>
-
-            </article>
+          </article>
 
 
-            <!-- SERVICE 05 -->
 
-            <article class="service-card">
+          <article class="service-card">
 
-                <i class="fa-solid fa-gauge-high"></i>
+            <div class="service-number">
+              03
+            </div>
 
-                <h3>
-                    Website Improvement
-                </h3>
+            <div class="service-icon">
 
-                <p>
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
 
-                    Responsive fixes, UI upgrades,
-                    usability improvements and
-                    front-end refinement.
+            </div>
 
-                </p>
+            <h3>
+              UI / UX Design
+            </h3>
 
-                <span>
-                    UX · Mobile · Performance
-                </span>
+            <p>
+              Clean visual systems, thoughtful spacing,
+              responsive layouts and interfaces designed
+              around the user.
+            </p>
 
-            </article>
+            <div class="service-link">
+              Explore
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+          </article>
 
 
-            <!-- SERVICE 06 -->
 
-            <article class="service-card">
+          <article class="service-card">
 
-                <i class="fa-solid fa-wrench"></i>
+            <div class="service-number">
+              04
+            </div>
 
-                <h3>
-                    Website Maintenance
-                </h3>
+            <div class="service-icon">
 
-                <p>
+              <i class="fa-solid fa-robot"></i>
 
-                    Website updates, fixes and
-                    ongoing improvements to keep
-                    projects working smoothly.
+            </div>
 
-                </p>
+            <h3>
+              AI & Automation
+            </h3>
 
-                <span>
-                    Fixes · Updates · Support
-                </span>
+            <p>
+              AI-assisted products, automation concepts,
+              chatbots and practical AI-powered workflows.
+            </p>
 
-            </article>
+            <div class="service-link">
+              Explore
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
 
+          </article>
+
+
+
+          <article class="service-card">
+
+            <div class="service-number">
+              05
+            </div>
+
+            <div class="service-icon">
+
+              <i class="fa-solid fa-gauge-high"></i>
+
+            </div>
+
+            <h3>
+              Website Improvement
+            </h3>
+
+            <p>
+              UI cleanup, responsive fixes, performance
+              improvements and modern visual upgrades.
+            </p>
+
+            <div class="service-link">
+              Explore
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+          </article>
+
+
+
+          <article class="service-card service-highlight">
+
+            <div class="service-number">
+              06
+            </div>
+
+            <div class="service-icon">
+
+              <i class="fa-solid fa-layer-group"></i>
+
+            </div>
+
+            <h3>
+              Digital Solutions
+            </h3>
+
+            <p>
+              From idea to working prototype — combining
+              design, development and AI-assisted workflows
+              into practical solutions.
+            </p>
+
+            <div class="service-link">
+              Explore
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+          </article>
 
         </div>
 
-    </div>
+      </div>
 
-</section>
-
-
-
-<!-- =====================================================
-     SKILLS
-===================================================== -->
-
-<section id="skills"
-    class="section">
-
-    <div class="container skills-container">
+    </section>
 
 
-        <!-- SKILL INTRO -->
 
-        <div>
+    <!-- =====================================================
+         SKILLS
+    ====================================================== -->
 
-            <p class="small-title">
-                # TECH STACK
-            </p>
+    <section
+      class="section skills-section"
+      id="skills"
+    >
 
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-number">
+            03
+          </div>
+
+          <div>
+
+            <span class="section-label">
+              SKILLS & TOOLS
+            </span>
 
             <h2>
-
-                My
-
-                <span class="gold">
-                    Skills.
-                </span>
-
+              My technical
+              <span>
+                toolkit.
+              </span>
             </h2>
 
+          </div>
 
-            <p class="muted">
+        </div>
 
-                Technologies and tools I use
-                while building real projects.
+
+        <div class="skills-layout">
+
+
+          <div class="skills-intro">
+
+            <h3>
+              Technologies I use to
+              build and experiment.
+            </h3>
+
+            <p>
+
+              My strongest foundation is front-end development.
+              I continuously expand my toolkit through personal
+              projects, experiments and AI-assisted development.
 
             </p>
 
 
             <div class="skill-tags">
 
-                <span>HTML5</span>
-                <span>CSS3</span>
-                <span>JavaScript</span>
-                <span>React.js</span>
-                <span>Next.js</span>
-                <span>Tailwind CSS</span>
-                <span>Bootstrap</span>
-                <span>Firebase</span>
-                <span>REST APIs</span>
-                <span>Git</span>
-                <span>GitHub</span>
-                <span>Node.js</span>
-                <span>Python</span>
-                <span>TypeScript</span>
-                <span>Figma</span>
-                <span>Canva</span>
-                <span>AI Prompting</span>
-                <span>Automation</span>
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+              <span>React.js</span>
+              <span>Next.js</span>
+              <span>Tailwind CSS</span>
+              <span>Bootstrap</span>
+              <span>Firebase</span>
+              <span>REST APIs</span>
+              <span>Git</span>
+              <span>GitHub</span>
+              <span>Node.js</span>
+              <span>Python</span>
+              <span>TypeScript</span>
+              <span>Figma</span>
+              <span>Canva</span>
+              <span>AI Prompting</span>
+              <span>Automation</span>
 
             </div>
 
-        </div>
+          </div>
 
 
 
-        <!-- SKILL BARS -->
+          <div class="skill-bars">
 
-        <div class="skill-bars">
 
+            <div class="skill-row">
 
-            <div class="skill">
-
-                <div>
-
-                    <strong>
-                        HTML / CSS
-                    </strong>
-
-                    <span>
-                        95%
-                    </span>
-
-                </div>
-
-                <div class="bar">
-                    <i style="width:95%"></i>
-                </div>
-
-            </div>
-
-
-            <div class="skill">
-
-                <div>
-
-                    <strong>
-                        JavaScript
-                    </strong>
-
-                    <span>
-                        88%
-                    </span>
-
-                </div>
-
-                <div class="bar">
-                    <i style="width:88%"></i>
-                </div>
-
-            </div>
-
-
-            <div class="skill">
-
-                <div>
-
-                    <strong>
-                        React / Next.js
-                    </strong>
-
-                    <span>
-                        82%
-                    </span>
-
-                </div>
-
-                <div class="bar">
-                    <i style="width:82%"></i>
-                </div>
-
-            </div>
-
-
-            <div class="skill">
-
-                <div>
-
-                    <strong>
-                        UI / UX
-                    </strong>
-
-                    <span>
-                        85%
-                    </span>
-
-                </div>
-
-                <div class="bar">
-                    <i style="width:85%"></i>
-                </div>
-
-            </div>
-
-
-            <div class="skill">
-
-                <div>
-
-                    <strong>
-                        Firebase / APIs
-                    </strong>
-
-                    <span>
-                        78%
-                    </span>
-
-                </div>
-
-                <div class="bar">
-                    <i style="width:78%"></i>
-                </div>
-
-            </div>
-
-
-            <div class="skill">
-
-                <div>
-
-                    <strong>
-                        Node.js / Python
-                    </strong>
-
-                    <span>
-                        65%
-                    </span>
-
-                </div>
-
-                <div class="bar">
-                    <i style="width:65%"></i>
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PROJECTS
-===================================================== -->
-
-<section id="projects"
-    class="section dark-section">
-
-    <div class="container">
-
-
-        <div class="section-heading">
-
-            <div>
-
-                <p class="small-title">
-                    # MY WORK
-                </p>
-
-                <h2>
-
-                    My
-
-                    <span class="gold">
-                        Projects.
-                    </span>
-
-                </h2>
-
-            </div>
-
-
-            <p id="projectCounter">
-                Showing projects
-            </p>
-
-        </div>
-
-
-
-        <!-- PROJECT FILTERS -->
-
-        <div class="filters">
-
-            <button
-                class="filter active"
-                data-filter="all">
-
-                All
-
-            </button>
-
-
-            <button
-                class="filter"
-                data-filter="web">
-
-                Web
-
-            </button>
-
-
-            <button
-                class="filter"
-                data-filter="fullstack">
-
-                Full Stack
-
-            </button>
-
-
-            <button
-                class="filter"
-                data-filter="ai">
-
-                AI
-
-            </button>
-
-
-            <button
-                class="filter"
-                data-filter="ui">
-
-                UI/UX
-
-            </button>
-
-        </div>
-
-
-
-        <!-- PROJECT GRID -->
-
-        <div id="projectGrid"
-            class="project-grid">
-
-            <!-- Projects generated by app.js -->
-
-        </div>
-
-
-
-        <!-- PROJECT NOTE -->
-
-        <div class="project-note">
-
-            <i class="fa-solid fa-circle-info"></i>
-
-            <p>
-
-                Explore selected projects above.
-                More projects can be added and managed
-                directly through the project data in
-                <strong>app.js</strong>.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section id="contact"
-    class="section contact-section">
-
-    <div class="container contact-container">
-
-
-        <!-- CONTACT INFO -->
-
-        <div>
-
-            <p class="small-title">
-                # CONTACT
-            </p>
-
-
-            <h2>
-
-                Have an idea?
-
-                <br>
-
-                <span class="gold">
-                    Let's build it.
-                </span>
-
-            </h2>
-
-
-            <p class="muted">
-
-                Tell me what you want to build
-                and let's discuss your project.
-
-            </p>
-
-
-            <div class="contact-links">
-
-
-                <a href="mailto:khateebejaz2@gmail.com">
-
-                    <i class="fa-solid fa-envelope"></i>
-
-                    khateebejaz2@gmail.com
-
-                </a>
-
-
-                <a
-                    href="https://github.com/MuhammadKhateebEjaz"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    <i class="fa-brands fa-github"></i>
-
-                    GitHub
-
-                </a>
-
-
-                <a
-                    href="https://www.linkedin.com/in/muhammad-khateeb-ejaz-40943a2a1/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    <i class="fa-brands fa-linkedin"></i>
-
-                    LinkedIn
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- CONTACT CARD -->
-
-        <div class="contact-card">
-
-
-            <div class="contact-icon">
-
-                <i class="fa-solid fa-paper-plane"></i>
-
-            </div>
-
-
-            <h3>
-                Start a conversation
-            </h3>
-
-
-            <p>
-
-                I'm available for web development,
-                UI/UX and digital project opportunities.
-
-            </p>
-
-
-            <a
-                class="btn primary-btn full-btn"
-                href="mailto:khateebejaz2@gmail.com">
-
-                Email Me
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-
-            <a
-                class="btn outline-btn full-btn"
-                href="https://wa.me/923496550742"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                WhatsApp Me
-
-                <i class="fa-brands fa-whatsapp"></i>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     PREMIUM FOOTER
-===================================================== -->
-
-<footer class="premium-footer">
-
-    <div class="footer-glow"></div>
-
-    <div class="container">
-
-
-        <!-- FOOTER BRAND -->
-
-        <div class="footer-brand">
-
-
-            <div class="footer-profile">
-
-                <img
-                    src="mkpose 1.jpeg"
-                    alt="Muhammad Khateeb Ejaz">
-
-            </div>
-
-
-            <div class="footer-brand-text">
-
-
-                <span class="footer-label">
-
-                    DESIGNED • DEVELOPED • CRAFTED BY
-
-                </span>
-
-
-                <h2>
-
-                    MUHAMMAD
-
-                    <span class="gold">
-                        KHATEEB EJAZ
-                    </span>
-
-                </h2>
-
-
-                <p>
-
-                    Web Developer
-
-                    <span>•</span>
-
-                    UI/UX Designer
-
-                    <span>•</span>
-
-                    AI Builder
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- FOOTER DIVIDER -->
-
-        <div class="footer-line"></div>
-
-
-
-        <!-- FOOTER BOTTOM -->
-
-        <div class="footer-bottom">
-
-
-            <div class="footer-copy">
+              <div class="skill-info">
 
                 <span>
-
-                    ©
-
-                    <span id="year"></span>
-
-                    Muhammad Khateeb Ejaz
-
-                </span>
-
-
-                <span class="footer-dot">
-                    •
-                </span>
-
-
-                <span>
-                    All Rights Reserved
-                </span>
-
-            </div>
-
-
-
-            <div class="footer-credit">
-
-                <span>
-                    Built with
+                  HTML / CSS
                 </span>
 
                 <strong>
-
-                    <i class="fa-solid fa-code"></i>
-
-                    Passion & Code
-
+                  95%
                 </strong>
+
+              </div>
+
+              <div class="skill-track">
+                <span
+                  style="--width:95%"
+                ></span>
+              </div>
 
             </div>
 
 
 
-            <a
-                href="#home"
-                class="footer-top">
+            <div class="skill-row">
 
-                BACK TO TOP
+              <div class="skill-info">
 
-                <i class="fa-solid fa-arrow-up"></i>
+                <span>
+                  JavaScript
+                </span>
 
-            </a>
+                <strong>
+                  88%
+                </strong>
+
+              </div>
+
+              <div class="skill-track">
+                <span
+                  style="--width:88%"
+                ></span>
+              </div>
+
+            </div>
+
+
+
+            <div class="skill-row">
+
+              <div class="skill-info">
+
+                <span>
+                  React / Next.js
+                </span>
+
+                <strong>
+                  82%
+                </strong>
+
+              </div>
+
+              <div class="skill-track">
+                <span
+                  style="--width:82%"
+                ></span>
+              </div>
+
+            </div>
+
+
+
+            <div class="skill-row">
+
+              <div class="skill-info">
+
+                <span>
+                  UI / UX
+                </span>
+
+                <strong>
+                  85%
+                </strong>
+
+              </div>
+
+              <div class="skill-track">
+                <span
+                  style="--width:85%"
+                ></span>
+              </div>
+
+            </div>
+
+
+
+            <div class="skill-row">
+
+              <div class="skill-info">
+
+                <span>
+                  Firebase / APIs
+                </span>
+
+                <strong>
+                  78%
+                </strong>
+
+              </div>
+
+              <div class="skill-track">
+                <span
+                  style="--width:78%"
+                ></span>
+              </div>
+
+            </div>
+
+
+
+            <div class="skill-row">
+
+              <div class="skill-info">
+
+                <span>
+                  Node.js / Python
+                </span>
+
+                <strong>
+                  65%
+                </strong>
+
+              </div>
+
+              <div class="skill-track">
+                <span
+                  style="--width:65%"
+                ></span>
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PROJECTS
+    ====================================================== -->
+
+    <section
+      class="section projects-section"
+      id="projects"
+    >
+
+      <div class="container">
+
+        <div class="section-heading projects-heading">
+
+          <div class="section-number">
+            04
+          </div>
+
+          <div>
+
+            <span class="section-label">
+              SELECTED WORK
+            </span>
+
+            <h2>
+              Projects I've
+              <span>
+                built.
+              </span>
+            </h2>
+
+            <p>
+              A selection of web applications, AI experiments,
+              business websites and practical digital products.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="project-controls">
+
+          <div class="filters">
+
+            <button
+              class="filter active"
+              data-filter="all"
+              type="button"
+            >
+              All
+            </button>
+
+            <button
+              class="filter"
+              data-filter="web"
+              type="button"
+            >
+              Web
+            </button>
+
+            <button
+              class="filter"
+              data-filter="fullstack"
+              type="button"
+            >
+              Full Stack
+            </button>
+
+            <button
+              class="filter"
+              data-filter="ai"
+              type="button"
+            >
+              AI
+            </button>
+
+            <button
+              class="filter"
+              data-filter="ui"
+              type="button"
+            >
+              UI / UX
+            </button>
+
+          </div>
+
+
+          <div
+            class="project-count"
+            id="projectCounter"
+          >
+            0 Projects
+          </div>
+
+        </div>
+
+
+        <div
+          class="project-grid"
+          id="projectGrid"
+        >
+          <!-- JavaScript inserts projects here -->
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <section
+      class="section contact-section"
+      id="contact"
+    >
+
+      <div class="container">
+
+        <div class="contact-box">
+
+
+          <div class="contact-main">
+
+            <span class="section-label">
+              LET'S WORK TOGETHER
+            </span>
+
+            <h2>
+              Have an idea?
+              <span>
+                Let's build it.
+              </span>
+            </h2>
+
+            <p>
+
+              Whether it's a website, portfolio, business
+              platform, e-commerce idea or AI-powered concept,
+              I'm open to discussing the project and figuring
+              out the right direction.
+
+            </p>
+
+
+            <div class="contact-buttons">
+
+              <a
+                href="mailto:khateebejaz@gmail.com"
+                class="button button-primary"
+              >
+
+                Email Me
+
+                <i class="fa-regular fa-envelope"></i>
+
+              </a>
+
+
+              <a
+                href="https://wa.me/923496550742"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-whatsapp"
+              >
+
+                WhatsApp
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="contact-side">
+
+            <div class="contact-item">
+
+              <div class="contact-icon">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+
+              <div>
+
+                <span>
+                  EMAIL
+                </span>
+
+                <a href="mailto:khateebejaz@gmail.com">
+                  khateebejaz@gmail.com
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+              <div class="contact-icon">
+                <i class="fa-brands fa-github"></i>
+              </div>
+
+              <div>
+
+                <span>
+                  GITHUB
+                </span>
+
+                <a
+                  href="https://github.com/MuhammadKhateebEjaz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  MuhammadKhateebEjaz
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+              <div class="contact-icon">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+
+              <div>
+
+                <span>
+                  LINKEDIN
+                </span>
+
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Connect on LinkedIn
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="footer">
+
+    <div class="container">
+
+
+      <div class="footer-main">
+
+        <div class="footer-brand">
+
+          <img
+            src="mkpose 1.jpeg"
+            alt="Muhammad Khateeb Ejaz"
+          >
+
+          <div>
+
+            <span>
+              DESIGNED • DEVELOPED • CRAFTED BY
+            </span>
+
+            <strong>
+              MUHAMMAD KHATEEB EJAZ
+            </strong>
+
+            <small>
+              Web Developer • UI/UX • AI-Assisted Builder
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <a
+          href="#home"
+          class="back-home"
+        >
+
+          Back to top
+
+          <i class="fa-solid fa-arrow-up"></i>
+
+        </a>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © <span id="year"></span>
+          Muhammad Khateeb Ejaz.
+          All rights reserved.
+        </span>
+
+        <span>
+          Built with code, creativity & AI-assisted workflows.
+        </span>
+
+      </div>
+
     </div>
 
-</footer>
+  </footer>
 
 
 
-<!-- =====================================================
-     BACK TO TOP
-===================================================== -->
+  <!-- =====================================================
+       BACK TO TOP
+  ====================================================== -->
 
-<button
+  <button
+    class="back-top"
     id="backTop"
-    aria-label="Back to top">
+    type="button"
+    aria-label="Back to top"
+  >
 
     <i class="fa-solid fa-arrow-up"></i>
 
-</button>
+  </button>
 
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script src="app.js"></script>
+  <!-- JavaScript -->
+  <script src="app.js"></script>
 
 </body>
 </html>
-```
